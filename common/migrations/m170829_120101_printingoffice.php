@@ -512,7 +512,7 @@ class m170829_120101_printingoffice extends \yii\db\Migration
             'mob2' => $this->string(255),
             'birthday' => $this->date(),
             'website' => $this->string(255),
-            'nationCode' => $this->string(Yii::$app->systemCore->nationCodeLength),
+            'nationCode' => $this->string(10),
             'postalcode' => $this->string(10),
             'jobcategory' => $this->string(255),
             'address' => $this->string(255),
