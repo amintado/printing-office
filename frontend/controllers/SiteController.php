@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\UserInfo;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -157,6 +158,9 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user)) {
+                    $info=new UserInfo();
+                    $info->uid=Yii::$app->user->id;
+                    $info->save();
                     return $this->goHome();
                 }
             }
