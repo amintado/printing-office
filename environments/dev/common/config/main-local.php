@@ -1,10 +1,22 @@
 <?php
+/**
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ */
+
 return [
     'components' => [
         'systemCore' => [
             'class' => 'common\config\components\systemCoreSettings',
             'nationCodeLength' => 10,//Enter Length Of Personal NationCode In Your Country <<<>>> Set This Parameter Before Do Migration <<>> Length Of This Parameter Is 10 In Iran Country
-            'googleMapAPI_key' => ''//Enter Your google map API Token Here
+            'googleMapAPI_key' => '',//Enter Your google map API Token Here
+            'companyName' => '<a href="https://amintado.github.io/printing-office/">printing-office</a>'
         ],
         'telegram' => [
             'class' => 'common\config\components\telegram',

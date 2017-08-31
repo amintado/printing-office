@@ -1,4 +1,14 @@
 <?php
+/**
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ */
 
 namespace common\models;
 
@@ -19,7 +29,7 @@ use common\models\User;
     {
         return [
             [['id', 'RoleID', 'status', 'IsPrivate', 'lock'], 'integer'],
-            [['username', 'fullname', 'Image', 'auth_key', 'access_token', 'password_hash', 'password_reset_token', 'email', 'mobile', 'LastLoginIP', 'created_at', 'updated_at', 'imei', 'UUID'], 'safe'],
+            [['username', 'fullname', 'Image', 'auth_key', 'access_token', 'password_hash', 'password_reset_token', 'email', 'LastLoginIP', 'created_at', 'updated_at', 'imei', 'UUID'], 'safe'],
         ];
     }
 
@@ -73,7 +83,6 @@ use common\models\User;
             ->andFilterWhere(['like', 'password_hash', $this->password_hash])
             ->andFilterWhere(['like', 'password_reset_token', $this->password_reset_token])
             ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'mobile', $this->mobile])
             ->andFilterWhere(['like', 'LastLoginIP', $this->LastLoginIP])
             ->andFilterWhere(['like', 'imei', $this->imei])
             ->andFilterWhere(['like', 'UUID', $this->UUID]);

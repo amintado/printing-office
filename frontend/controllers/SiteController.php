@@ -1,4 +1,15 @@
 <?php
+/**
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ */
+
 namespace frontend\controllers;
 
 use common\models\UserInfo;
@@ -86,21 +97,21 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionLogin()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-    }
+//    public function actionLogin()
+//    {
+//        if (!Yii::$app->user->isGuest) {
+//            return $this->goHome();
+//        }
+//
+//        $model = new LoginForm();
+//        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+//            return $this->goBack();
+//        } else {
+//            return $this->render('login', [
+//                'model' => $model,
+//            ]);
+//        }
+//    }
 
     /**
      * Logs out the current user.
@@ -145,30 +156,6 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
-    }
-
-    /**
-     * Signs user up.
-     *
-     * @return mixed
-     */
-    public function actionSignup()
-    {
-        $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    $info=new UserInfo();
-                    $info->uid=Yii::$app->user->id;
-                    $info->save();
-                    return $this->goHome();
-                }
-            }
-        }
-
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
     }
 
     /**
@@ -223,5 +210,92 @@ class SiteController extends Controller
     public function actionProfile()
     {
         return $this->redirect(Yii::$app->urlManagerBackend->createUrl('//'));
+    }
+
+
+    /**
+     * Signs user up.
+     *
+     * @return mixed
+     */
+    public function actionSignup()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+        //Port number from masked to original
+        $post = Yii::$app->request->post();
+        if (!empty($post['SignupForm']['username'])) {
+            $post['SignupForm']['username'] = str_replace(['(', ')', ' ', '-'], '', $post['SignupForm']['username']);
+        }
+
+        $model = new SignupForm();
+        if ($model->load($post)) {
+
+
+            if ($user = $model->GetMobile()) {
+                $model->scenario = SignupForm::SCENARIO_GET_CODE;
+                return $this->render('getCode', ['model' => $model]);
+            }
+        }
+        if (!empty($model->username)) {
+            $model->username = substr($model->username, 1, strlen($model->username));
+        }
+        return $this->render('signup', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionVerify()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+        //Port number from masked to original
+        $post = Yii::$app->request->post();
+        if (!empty($post['SignupForm']['VerificationCode'])) {
+            $post['SignupForm']['VerificationCode'] = str_replace(['(', ')', ' ', '-'], '', $post['SignupForm']['VerificationCode']);
+        }
+
+        $model = new SignupForm();
+
+
+        if ($model->load($post)) {
+            $model->scenario = SignupForm::SCENARIO_GET_CODE;
+
+            switch ($model->GetCode()) {
+                case null:
+                    return $this->render('notVerify');
+                case 'signup':
+
+                    return $this->render('signupForm2', ['model' => $model]);
+                case 'login':
+                    return $this->redirect('/frontend');
+            }
+        }
+        if (!empty($model->username)) {
+            $model->username = substr($model->username, 1, strlen($model->username));
+        }
+        return $this->render('signup', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionSignupStep2()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+        $post = Yii::$app->request->post();
+        $model = new SignupForm();
+        if ($model->load($post)) {
+
+            if ($model->GetDetail()) {
+               return $this->redirect('/frontend');
+            }else{
+                return $this->render('signupForm2', ['model' => $model]);
+            }
+
+        }
     }
 }

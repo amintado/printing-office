@@ -1,4 +1,14 @@
 <?php
+/**
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ */
 
 use yii\db\Schema;
 
@@ -39,24 +49,26 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             ], $tableOptions);
                 $this->createTable('{{%users}}', [
             'id' => $this->primaryKey(),
-            'username' => $this->string(255)->notNull(),
-            'fullname' => $this->string(100)->notNull(),
+            'username' => $this->string(255)->notNull()->unique(),
+            'hash_id'=>$this->string(20)->notNull()->unique(),
+            'fullname' => $this->string(100),
             'RoleID' => $this->integer(11),
-            'Image' => $this->string(100)->notNull(),
-            'auth_key' => $this->string(32)->notNull(),
+            'Image' => $this->string(100),
+            'auth_key' => $this->string(32),
             'access_token' => $this->string(128),
-            'password_hash' => $this->string(255)->notNull(),
+            'password_hash' => $this->string(255),
             'password_reset_token' => $this->string(255),
-            'email' => $this->string(255)->notNull(),
-            'mobile' => $this->string(15),
-            'status' => $this->smallInteger(6)->notNull()->defaultValue(10),
-            'IsPrivate' => $this->integer(11)->notNull(),
-            'LastLoginIP' => $this->string(16)->notNull(),
+            'email' => $this->string(255),
+            'status' => $this->smallInteger(6)->defaultValue(10),
+            'IsPrivate' => $this->integer(11),
+            'LastLoginIP' => $this->string(16),
             'created_at' => $this->datetime(),
             'updated_at' => $this->datetime(),
             'imei' => $this->string(255)->defaultValue(''),
             'UUID' => $this->char(32),
             'lock' => $this->bigInteger(20),
+            'mode' => $this->smallInteger(6)->defaultValue(1),
+            'VerificationCode' => $this->Integer(11),
             ], $tableOptions);
                 $this->createTable('{{%auth_assignment}}', [
             'item_name' => $this->string(64)->notNull(),

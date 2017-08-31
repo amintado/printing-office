@@ -1,10 +1,22 @@
 <?php
+/**
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ */
+
 use backend\assets\FileInputAsset;
 use common\models\Role;
 use common\models\User;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
 use yii\web\View;
+use yii\widgets\MaskedInput;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\User */
@@ -50,12 +62,26 @@ $this->registerJs("
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true, 'placeholder' => 'ایمیل: user@domain.reg', 'type' => "text"]) ?>
 
-    <?= $form->field($model, 'mobile')->textInput(['maxlength' => true, 'placeholder' => 'مثال : 09353466620','onkeydown'=>'return ( event.ctrlKey || event.altKey 
+
+    <?= $form->field($model, 'username')->widget(MaskedInput::className(),
+        [
+            'name' => 'mobile',
+            'model' => $model,
+            'mask' => '(9999) 99-99-99-9',
+            'options' =>
+                [
+                    'placeholder' => '(0915) 00-00-00-0',
+                    'class' => 'text-center form-control',
+                    'style'=>'direction:ltr;font-size:20px',
+                    'onkeydown'=>'return ( event.ctrlKey || event.altKey 
                     || (47<event.keyCode && event.keyCode<58 && event.shiftKey==false) 
                     || (95<event.keyCode && event.keyCode<106)
                     || (event.keyCode==8) || (event.keyCode==9) 
                     || (event.keyCode>34 && event.keyCode<40) 
-                    || (event.keyCode==46) )']) ?>
+                    || (event.keyCode==46) )',
+                    'disabled'=>'disabled'
+                ]
+        ]) ?>
 
 
 </div>

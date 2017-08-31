@@ -1,7 +1,19 @@
 <?php
+/**
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ */
+
 namespace common\models;
 
 use common\config\components\functions;
+use frontend\models\SignupForm;
 use const null;
 use Yii;
 use yii\base\NotSupportedException;
@@ -28,6 +40,8 @@ use Exception;
  * @property string $fullname
  * @property int    $RoleID
  * @property string $Image
+ * @property string $VerificationCode
+ * @property string $hash_id
  * @property  string $shamsibirthday
  * @property string $password write-only password
  */
@@ -37,6 +51,8 @@ class User extends ActiveRecord implements IdentityInterface
 
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
+    const STATUS_MOBILE_VERIFY_WAITING=1;
+    const STATUS_SIGNUP_DATA_WAITING=2;
     protected $uid = null;
 
     public $birthday;
@@ -69,8 +85,11 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            ['status', 'default', 'value' => self::STATUS_MOBILE_VERIFY_WAITING],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED,self::STATUS_MOBILE_VERIFY_WAITING,self::STATUS_SIGNUP_DATA_WAITING]],
+            ['username', 'string', 'min' => 11, 'max' => 17],
+            ['username', 'required'],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('common', 'This mobile has already been taken.')],
         ];
     }
 
@@ -216,8 +235,32 @@ class User extends ActiveRecord implements IdentityInterface
         $this->password_reset_token = null;
     }
 
+    /**
+     * Generates "api" access token
+     */
+    public function generateAccessToken()
+    {
+        $this->access_token = urlencode(Yii::$app->security->generateRandomString(50) . time());
+    }
+
+    public function loginWithUsernameAndPassword($username, $password)
+    {
+        $user = self::findByUsername($username);
+
+        if ($user) {
+            if (Yii::$app->security->validatePassword($password, $user->password_hash)) {
 
 
+                return $user;
+            } else {
+                return 'incorrect';
+            }
+        } else {
+
+            return false;
+        }
+
+    }
 
 
 
@@ -352,7 +395,7 @@ class User extends ActiveRecord implements IdentityInterface
             $status = $data['status'];
         }
         $Email = trim($data['email']);
-        $Mobile = trim($data['mobile']);
+        $Mobile = trim($data['username']);
 
 
         //---------------- Validate -------------------
@@ -377,12 +420,88 @@ class User extends ActiveRecord implements IdentityInterface
 
         //Mobile
         if (!empty($Mobile)) {
-            if (!empty((float)$Mobile)) {
-                $model->mobile = (string)$Mobile;
+
+                $Mobile = str_replace(['(', ')', ' ', '-'], '', $Mobile);
+
+
+                $user=User::find()->where(['username'=>$Mobile])->one();
+                if (empty($user)){
+                    $model->username = (string)$Mobile;
+                }else{
+                    if ($model->username!==$Mobile){
+                        $this->Alert('warning', Yii::t('backend', 'Duplicate Mobile'));
+                    }
+                }
+
+
+        }
+
+        if (!empty($status)) {
+            if (!empty((int)$status)) {
+                $model->status = (int)$status;
             } else {
-                $this->Alert('error', Yii::t('backend', 'Invalid Mobile Format'));
+                $this->Alert('error', Yii::t('backend', 'Invalid User Status'));
+            }
+        }//TODO: Image Update Code
+
+        if ($model->validate()) {
+            if ($model->save()) {
+                return true;
+            } else {
+                $this->Alert('error', Yii::t('backend', 'Not Saved'));
+                return false;
+            }
+        } else {
+            $this->Alert('error', Yii::t('backend', 'Not Saved'));
+            return false;
+        }
+    }
+
+
+    protected function UpdateUserProfile($model, $data)
+    {
+        /**
+         * @var $model User
+         */
+        //---------------- Parameters -------------------
+        if (!empty($data['RoleID'])){
+            $RoleID = trim($data['RoleID']);
+        }
+        if (!empty($data['status'])){
+            $status = $data['status'];
+        }
+        $Email = trim($data['email']);
+//        $Mobile = trim($data['mobile']);
+
+
+        //---------------- Validate -------------------
+        //RoleID
+        if (!empty($RoleID)) {
+            $RoleModel = Role::findOne($RoleID);
+            if (!empty($RoleModel)) {
+                $model->RoleID = (int)$RoleID;
+            } else {
+                $this->Alert('error', Yii::t('backend', 'Invalid RoleID'));
             }
         }
+
+        //Email
+        if (!empty($Email)) {
+            if (filter_var($Email, FILTER_VALIDATE_EMAIL)) {
+                $model->email = (string)$Email;
+            } else {
+                $this->Alert('error', Yii::t('backend', 'Invalid Email Format'));
+            }
+        }
+
+        //Mobile
+//        if (!empty($Mobile)) {
+//            if (!empty((float)$Mobile)) {
+//                $model->mobile = (string)$Mobile;
+//            } else {
+//                $this->Alert('error', Yii::t('backend', 'Invalid Mobile Format'));
+//            }
+//        }
 
         if (!empty($status)) {
             if (!empty((int)$status)) {
@@ -405,18 +524,32 @@ class User extends ActiveRecord implements IdentityInterface
         }
     }
 
+
+
     protected function CreateUser($data)
     {
         //---------------- Create New User -------------------
         $model=new User();
-        $model->setPassword('12345');
+        $model->setPassword(Yii::$app->systemCore->DefaultPassword);
         $model->generateAuthKey();
 
         //---------------- Parameters -------------------
-        $RoleID = trim($data['RoleID']);
-        $Email = trim($data['email']);
-        $Mobile = trim($data['mobile']);
-        $status = $data['status'];
+        if (!empty($data['RoleID'])){
+            $RoleID = trim($data['RoleID']);
+        }
+        if (!empty($data['email'])){
+            $Email = trim($data['email']);
+        }
+        if (!empty($data['username'])){
+            $Mobile = trim($data['username']);
+        }
+        if (!empty($data['status'])){
+            $status = $data['status'];
+        }
+
+
+
+
 
 
         //---------------- Validate -------------------
@@ -441,12 +574,17 @@ class User extends ActiveRecord implements IdentityInterface
 
         //Mobile
         if (!empty($Mobile)) {
-            if (!empty((float)$Mobile)) {
-                $model->mobile = (string)$Mobile;
-                $model->username=(string)$Mobile;
-            } else {
-                $this->Alert('Invalid-Mobile', Yii::t('backend', 'Invalid Mobile Format'));
-            }
+
+            $Mobile = str_replace(['(', ')', ' ', '-'], '', $Mobile);
+
+
+                $user=User::find()->where(['username'=>$Mobile])->one();
+                if (empty($user)){
+                    $model->username = (string)$Mobile;
+                }else{
+                    $this->Alert('warning', Yii::t('backend', 'Duplicate Mobile'));
+                }
+
         }
 
         if (!empty($status)) {
@@ -459,14 +597,16 @@ class User extends ActiveRecord implements IdentityInterface
 
         if ($model->validate()) {
             if ($model->save()) {
-                return;
+                $model->hash_id=hash('adler32',$model->id,false);
+                $model->save();
+                return true;
             } else {
                 $this->Alert('error', Yii::t('backend', 'Not Saved'));
-                return;
+                return false;
             }
         } else {
             $this->Alert('error', Yii::t('backend', 'Not Saved'));
-            return;
+            return false;
         }
     }
 
@@ -484,6 +624,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function HandleUserPost($post)
     {
+
         //---------------- Check Posted Parameters -------------------
         if (!empty($post['User'])) {
             $post = $post['User'];
@@ -500,11 +641,36 @@ class User extends ActiveRecord implements IdentityInterface
             } else {
                 return $this->CreateUser($post);
             }
+        }else{
+            return $this->CreateUser($post);
         }
 
 
     }
 
 
+
+    public function HandleUserPostProfile($post)
+    {
+        //---------------- Check Posted Parameters -------------------
+        if (!empty($post['User'])) {
+            $post = $post['User'];
+        } else {
+            return;
+        }
+
+        if (!empty($post['id'])) {
+            $this->uid = $post['id'];
+
+            $user = User::findOne($this->uid);
+            if (!empty($user)) {
+                return $this->UpdateUserProfile($user, $post);
+            } else {
+                return $this->CreateUser($post);
+            }
+        }
+
+
+    }
 
 }

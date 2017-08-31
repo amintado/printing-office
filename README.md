@@ -2,5 +2,8 @@
 
 this project is a printing office site project.
 
+first you must clone this repository to your system:
+
+
 
 

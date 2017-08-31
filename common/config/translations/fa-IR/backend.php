@@ -1,4 +1,14 @@
 <?php
+/**
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ */
 
 return [
 
@@ -14,6 +24,7 @@ return [
 'UserInfo - Price'=>'شارژ حساب',
 'UserInfo - Account'=>'حساب کاربری',
 'UserInfo'=>'اطلاعات شخصی',
+'view'=>'نمایش',
 
 'Create User'=>'کاربر جدید',
    'Version'=>'شماره نسخه',
@@ -102,6 +113,7 @@ return [
     'Invalid RoleID'=>'نقش کاربری که به سیستم اعلام کردید معتبر نبود، بنابراین اعمال نشد.',
     'Invalid Email Format'=>'قالب آدرس ایمیل صحیح نبود، بنابراین ایمیل جدید اعمال نشد',
     'Invalid Mobile Format'=>'فرمت شماره موبایل اشتباه بود، بنابراین اعمال نشد',
+    'Duplicate Mobile'=>'کاربر دیگری با این شماره موبایل وجود دارد، بنابراین شماره ای که وارد کرده اید اعمال نشد',
     'Invalid User Status'=>'قالب وضعیت کاربری اشتباه وارد شده بود، بنابراین اعمال نشد',
     'Not Saved'=>'ذخیره نشد',
     ];

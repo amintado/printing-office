@@ -28,7 +28,16 @@ use yii\widgets\DetailView;
  */
 ?>
 
+<style>
+    #map_canvas {
+        width: 100%;
+        height: 500px;
+    }
 
+    #current {
+        padding-top: 25px;
+    }
+</style>
 <div class="row">
 
     <div class="panel panel-info">
@@ -37,34 +46,23 @@ use yii\widgets\DetailView;
             <?php
             $columns =
                 [
-                    'username',
-                    'fullname',
+                    'nationCode',
+                    'name',
+                    'family',
                     [
-                        'attribute' => 'Role.name',
-                        'label' => Yii::t('backend', 'Role - Name')
-                    ],
-                    [
-                        'attribute' => 'status',
-                        'value' => function ($model) {
-                            /**
-                             * @var $model User
-                             */
-                            switch ($model->status) {
-                                case User::STATUS_ACTIVE:
-                                    return Yii::t('common', 'User Active');
-                                    break;
-                                case User::STATUS_DELETED:
-                                    return Yii::t('common', 'User Deleted');
-
+                        'attribute'=>'birthday',
+                        'value'=>function($model){
+                            if (!empty($model->birthday)){
+                                return functions::convertdate($model->birthday);
                             }
                         }
                     ],
+                    'jobcategory',
+                    'workname'
 
-                    'LastLoginIP',
-                    'created_at',
                 ];
             echo DetailView::widget([
-                'model' => $user,
+                'model' => $info,
                 'attributes' => $columns
             ]);
             ?>
@@ -73,6 +71,5 @@ use yii\widgets\DetailView;
     </div>
 
 </div>
-
 
 

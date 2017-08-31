@@ -1,4 +1,15 @@
 <?php
+/**
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ */
+
 use common\config\components\functions;
 use common\models\User;
 
@@ -45,7 +56,7 @@ use common\models\User;
                     'items' => [
                         ['label' => 'فهرست عمومی کاربران', 'icon' => 'map-marker', 'url' => ['/users/index'],],
                         ['label' => 'نقش های کاربری', 'icon' => 'comment', 'url' => ['/role/index'],],
-                        ['label' => 'بازبینی پروفایل ها', 'icon' => 'comment', 'url' => ['/users/correct-nulls'],],
+//                        ['label'=>'مدل های کاربری','icon'=>'filter','url'=>['/user-mode']]
 
                     ],
                 ],

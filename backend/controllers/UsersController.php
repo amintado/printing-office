@@ -1,4 +1,14 @@
 <?php
+/**
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ */
 
 namespace backend\controllers;
 
@@ -78,35 +88,13 @@ class UsersController extends Controller
      */
     public function actionView($id)
     {
-        $model = $this->findModel($id);
-
-        $providerInquery = new \yii\data\ArrayDataProvider([
-            'allModels' => $model->inqueries,
-        ]);
-        $providerNotification = new \yii\data\ArrayDataProvider([
-            'allModels' => $model->notifications,
-        ]);
-        $providerOrderStatusLog = new \yii\data\ArrayDataProvider([
-            'allModels' => $model->orderStatusLogs,
-        ]);
-        $providerTicketHead = new \yii\data\ArrayDataProvider([
-            'allModels' => $model->ticketHeads,
-        ]);
-        $providerTransaction = new \yii\data\ArrayDataProvider([
-            'allModels' => $model->transactions,
-        ]);
-        $providerUserInfo = new \yii\data\ArrayDataProvider([
-            'allModels' => $model->userInfo,
-        ]);
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-            'providerInquery' => $providerInquery,
-            'providerNotification' => $providerNotification,
-            'providerOrderStatusLog' => $providerOrderStatusLog,
-            'providerTicketHead' => $providerTicketHead,
-            'providerTransaction' => $providerTransaction,
-            'providerUserInfo' => $providerUserInfo,
-        ]);
+        $user=User::findOne($id);
+        $info=UserInfo::find()->where(['uid'=>$id])->one();
+        return $this->render('view',
+            [
+                'user'=>$user,
+                'info'=>$info
+            ]);
     }
 
     /**
@@ -118,9 +106,26 @@ class UsersController extends Controller
     {
         $model = new User();
         $InfoModel = new UserInfo();
-        if ($model->loadAll(Yii::$app->request->post()) && $model->saveAll()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $post = Yii::$app->request->post();
+
+        //---------------- Save Lat Lng -------------------
+        if (!empty($post['UserInfo']['lat'])) {
+            $latLng = explode(',', rtrim(ltrim(Yii::$app->request->post()['UserInfo']['lat'], '('), ')'));
+            if (!empty($latLng[0]) and !empty($latLng[1])) {
+                $InfoModel->lat = trim($latLng[0]);
+                $InfoModel->lng = trim($latLng[1]);
+                $InfoModel->save();
+            }
+        }
+
+        if ($model->HandleUserPost($post) ) {
+            $InfoModel->uid=$model->id;
+            if ($InfoModel->HandleUserInfoPost($post)){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+
         } else {
+
             return $this->render('create', [
                 'model' => $model,
                 'InfoModel' => $InfoModel
@@ -152,10 +157,13 @@ class UsersController extends Controller
             }
         }
 
-        if ($model->HandleUserPost($post) && $InfoModel->HandleUserInfoPost($post)) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->HandleUserPost($post) ) {
+            $InfoModel->uid=$model->id;
+            if ($InfoModel->HandleUserInfoPost($post)){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         } else {
-
+            $model->username=substr($model->username,1,strlen($model->username));
             return $this->render('update', [
                 'model' => $model,
                 'InfoModel' => $InfoModel
