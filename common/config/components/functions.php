@@ -1,4 +1,15 @@
 <?php
+/**
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ */
+
 namespace common\config\components;
 use common\models\Galleries;
 use common\models\StatPlaceView;
@@ -28,6 +39,12 @@ class functions extends Component {
         }
         return '---';
     }
+
+    /**
+     * will convert all NULL value to empty string "" for android in RestFull
+     * @param $array
+     * @return mixed
+     */
     public static function null_filter($array)
     {
 
@@ -174,21 +191,17 @@ class functions extends Component {
     public static function generatePasswordResetToken() {
         return Yii::$app->security->generateRandomString() . '_' . time();
     }
-    public static function validatePassword($main_pass, $password) {
-        return Yii::$app->security->validatePassword($password, $main_pass);
-    }
     /**
      * will return user image
      *
      * if user image not set or not find in directory
      *
      * will return default picture
-     * @param $type string user,forum,festival,user.profile
      * @param $bool boolean  if this=true will return true if user picture was exist
      * @param $objectID
      * @return mixed  return boolean if $bool parameter is true and return string link if $bool parameter is false
      */
-    public static function ImageReturn($objectID, $bool = false, $type = 'user')
+    public static function ImageReturn($objectID, $bool = false)
     {
 
 
@@ -198,7 +211,7 @@ class functions extends Component {
 
             if (!empty($pic)) {
                 try{
-                    $headers=get_headers('http://dl.tabanchap.ir/profiles' . '/' . $pic);
+                    $headers=get_headers(Yii::$app->systemCore->downloadURL. 'http://dl.tabanchap.ir/profiles' . '/' . $pic);
                     $result =stripos($headers[0],"200 OK")?true:false;
                 }catch (Exception $e){
                     $result=false;
@@ -207,13 +220,13 @@ class functions extends Component {
                 if ($result) {
                     if ($bool == false) {
 
-                        $return_value = 'http://dl.tabanchap.ir/profiles' . '/'  . $pic;
+                        $return_value =Yii::$app->systemCore->downloadURL.  '/profiles' . '/'  . $pic;
                     } else {
                         $return_value = true;
                     }
                 } else {
                     if ($bool == false) {
-                        $return_value = 'http://dl.tabanchap.ir/profiles' . '/' . 'defualt-pic.png';
+                        $return_value = Yii::$app->systemCore->downloadURL. '/profiles' . '/' . 'defualt-pic.png';
                     } else {
                         $return_value = false;
                     }
@@ -221,7 +234,7 @@ class functions extends Component {
             } else {
                 if ($bool == false) {
 
-                    $return_value = 'http://dl.shahrmap.ir/profiles' . '/' . 'defualt-pic.png';
+                    $return_value =Yii::$app->systemCore->downloadURL. '/profiles' . '/' . 'defualt-pic.png';
                 } else {
                     $return_value = false;
                 }
@@ -232,12 +245,12 @@ class functions extends Component {
 
     }
 
-    public static function sendElasticEmailIdeaCity($to, $subject, $from = null, $fromName = null, $body_text = null, $body_html = null, $template = null, $templateData = [])
+    public static function sendElasticEmail($to, $subject, $from = null, $fromName = null, $body_text = null, $body_html = null, $template = null, $templateData = [])
     {
         $res = "";
 
-        $data = "username=" . urlencode("info@shahrmap.ir");
-        $data .= "&api_key=" . urlencode("5957e977-98e6-4a14-abd4-988e97516820");
+        $data = "username=" . urlencode(Yii::$app->systemCore->elasticMail['username']);
+        $data .= "&api_key=" . urlencode(Yii::$app->systemCore->elasticMail['api_key']);
         $data .= "&to=" . urlencode($to);
         $data .= "&subject=" . urlencode($subject);
         if ($template != null) {
@@ -247,10 +260,10 @@ class functions extends Component {
             }
         } else {
             if ($from) {
-                $data .= "&from=" . urlencode("info@shahrmap.ir");
+                $data .= "&from=" . urlencode(Yii::$app->systemCore->elasticMail['from_email']);
             }
             if ($fromName) {
-                $data .= "&from_name=" . urlencode("شهرمپ");
+                $data .= "&from_name=" . urlencode(Yii::$app->systemCore->elasticMail['from_name']);
             }
             if ($body_html) {
                 $data .= "&body_html=" . urlencode($body_html);

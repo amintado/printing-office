@@ -22,19 +22,18 @@ namespace backend\assets;
 
 use yii\web\AssetBundle;
 
-class FileInputAsset extends AssetBundle
+class ImageGrigAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor//bower/bootstrap-fileinput';
+    public $sourcePath = '@vendor//bower/image-grid-effects';
     public $css = [
-        'css/fileinput.min.css',
+        'css/demo.css',
     ];
     public $js=[
-        'js/plugins/piexif.min.js',
-        'js/plugins/sortable.min.js',
-        'js/plugins/purify.min.js',
-        'js/fileinput.min.js',
-        'js/locales/fa.js',
-        'themes/fa/theme.js'
+        'js/modernizr-custom.js',
+        'js/imagesloaded.pkgd.min.js',
+        'js/masonry.pkgd.min.js',
+        'js/classie.js',
+        'js/main.js'
 
     ];
     public $depends = [

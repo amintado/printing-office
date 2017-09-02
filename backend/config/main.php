@@ -1,4 +1,15 @@
 <?php
+/**
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ */
+
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),
@@ -13,13 +24,13 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [
-        'gridview' =>  [
+        'gridview' => [
             'class' => '\kartik\grid\Module'
         ]
     ],
     'components' => [
         'view' => [
-            'title' => Yii::t('backend','app-name'),
+            'title' => Yii::t('backend', 'app-name'),
             'theme' => [
                 'pathMap' => [
                     '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-advanced-app'
@@ -58,7 +69,7 @@ return [
             ],
         ],
 
-        'authManager'       => [
+        'authManager' => [
             'class' => 'yii\rbac\DbManager',
         ],
 

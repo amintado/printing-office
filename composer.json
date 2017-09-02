@@ -35,7 +35,8 @@
         "dmstr/yii2-adminlte-asset": "2.*",
         "airani/yii2-adminlte-rtl": "^1.0",
         "airani/yii2-bootstrap-rtl": "^1.2",
-        "kartik-v/bootstrap-fileinput": "@dev"
+        "kartik-v/bootstrap-fileinput": "@dev",
+        "2amigos/yii2-ckeditor-widget": "^2.1"
 
 
     },
@@ -60,5 +61,12 @@
                 "bower-asset-library": "vendor/bower"
             }
         }
+    },
+    "scripts":{
+        "post-install-cmd":[
+            "bower install image-grid-effects",
+            "bower install fine-uploader",
+            "bower install bootstrap-fileinput"
+        ]
     }
 }

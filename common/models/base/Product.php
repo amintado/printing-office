@@ -1,4 +1,14 @@
 <?php
+/**
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ */
 
 namespace common\models\base;
 
@@ -12,6 +22,8 @@ use yii\behaviors\BlameableBehavior;
  * @property integer $id
  * @property string $title
  * @property string $description
+ * @property string $specification
+ * @property string $technical_specification
  * @property string $UUID
  * @property string $lock
  * @property string $created_at
@@ -22,13 +34,14 @@ use yii\behaviors\BlameableBehavior;
  * @property string $restored_by
  *
  * @property \common\models\ProductGallery[] $tabanProductGalleries
- * @property \common\models\ProductSpecifications[] $tabanProductSpecifications
  * @property \common\models\ProductStepProperty[] $tabanProductStepProperties
- * @property \common\models\ProductTechnicalSpecification[] $tabanProductTechnicalSpecifications
  */
 class Product extends \yii\db\ActiveRecord
 {
     use \mootensai\relation\RelationTrait;
+
+    const STATUS_ACTIVR=1;
+    const STATUS_INACTIVE=0;
 
     private $_rt_softdelete;
     private $_rt_softrestore;
@@ -65,7 +78,7 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['description'], 'string'],
+            [['description','specification','technical_specification'], 'string'],
             [['lock', 'created_by', 'updated_by', 'deleted_by', 'restored_by'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['title'], 'string', 'max' => 255],
@@ -101,11 +114,14 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('common', 'ID'),
-            'title' => Yii::t('common', 'Title'),
-            'description' => Yii::t('common', 'Description'),
-            'UUID' => Yii::t('common', 'Uuid'),
-            'lock' => Yii::t('common', 'Lock'),
-            'restored_by' => Yii::t('common', 'Restored By'),
+            'title' => Yii::t('backend', 'Product Title'),
+            'description' => Yii::t('backend', 'Description'),
+            'UUID' => Yii::t('backend', 'Uuid'),
+            'lock' => Yii::t('backend', 'Lock'),
+            'restored_by' => Yii::t('backend', 'Restored By'),
+            'specification' => Yii::t('backend', 'Product Specification'),
+            'technical_specification' => Yii::t('backend', 'Product Technical Specification'),
+            'status' => Yii::t('backend', 'Status'),
         ];
     }
     

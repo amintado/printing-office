@@ -22,19 +22,14 @@ namespace backend\assets;
 
 use yii\web\AssetBundle;
 
-class FileInputAsset extends AssetBundle
+class FineUploaderAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor//bower/bootstrap-fileinput';
+    public $sourcePath = '@vendor//bower/fine-uploader';
     public $css = [
-        'css/fileinput.min.css',
+        'dist/fine-uploader-gallery.css',
     ];
     public $js=[
-        'js/plugins/piexif.min.js',
-        'js/plugins/sortable.min.js',
-        'js/plugins/purify.min.js',
-        'js/fileinput.min.js',
-        'js/locales/fa.js',
-        'themes/fa/theme.js'
+        'dist/fine-uploader.js'
 
     ];
     public $depends = [

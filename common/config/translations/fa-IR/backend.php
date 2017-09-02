@@ -17,6 +17,8 @@ return [
 'ID'=>'شناسه',
 'status'=>'وضعیت',
 'Update {modelClass}: '=>'بروزرسانی اطلاعات {modelClass}',
+'Product Status Active'=>'منتشر شده',
+'Product Status INActive'=>'منتشر نشده',
     
 'User'=>'کاربران',
 'UserInfo - Place'=>'اطلاعات سکونت',
@@ -25,6 +27,15 @@ return [
 'UserInfo - Account'=>'حساب کاربری',
 'UserInfo'=>'اطلاعات شخصی',
 'view'=>'نمایش',
+//---------------- Products -------------------
+'Products'=>'محصولات',
+'Create Product'=>'ثبت محصول',
+'Product Base Detail'=>'اطلاعات پایه',
+'Product Title'=>'نام محصول',
+'Product Gallery'=>'تصاویر',
+'Product Specification'=>'مشخصات',
+'Product Technical Specification'=>'مشخصات فنی',
+
 
 'Create User'=>'کاربر جدید',
    'Version'=>'شماره نسخه',
@@ -79,7 +90,6 @@ return [
     'Are you sure you want to delete this item?'=>'آیا از حذف این مورد اطمینان دارید؟',
     'Create'=>'بساز',
     'apk'=>'فایل برنامه',
-    'Cancel'=>'لغو',
     'Save As New'=>'ذخیره به عنوان جدید',
 
     'Cafebazar Url'=>'آدرس کافه بازار',
@@ -109,7 +119,6 @@ return [
     
     
     //---------------- Alerts -------------------
-    
     'Invalid RoleID'=>'نقش کاربری که به سیستم اعلام کردید معتبر نبود، بنابراین اعمال نشد.',
     'Invalid Email Format'=>'قالب آدرس ایمیل صحیح نبود، بنابراین ایمیل جدید اعمال نشد',
     'Invalid Mobile Format'=>'فرمت شماره موبایل اشتباه بود، بنابراین اعمال نشد',

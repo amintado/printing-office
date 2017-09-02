@@ -20,22 +20,27 @@ class m170829_140101_printingoffice extends \yii\db\Migration
         if ($this->db->driverName === 'mysql') {
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';
         }
-        
+        $this->createTable('{{%temp}}', [
+            'id' => $this->primaryKey(),
+            'key1' => $this->text(),
+            'key2' => $this->text(),
+            'key3' => $this->text()
+        ], $tableOptions);
         $this->createTable('{{%access}}', [
             'id' => $this->primaryKey(),
             'role_id' => $this->integer(11)->notNull(),
             'page_id' => $this->integer(11)->notNull(),
             'lock' => $this->bigInteger(20),
-            ], $tableOptions);
-                $this->createTable('{{%auth_rule}}', [
+        ], $tableOptions);
+        $this->createTable('{{%auth_rule}}', [
             'name' => $this->string(64)->notNull(),
             'data' => $this->text(),
             'created_at' => $this->integer(11),
             'updated_at' => $this->integer(11),
             'lock' => $this->bigInteger(20),
             'PRIMARY KEY ([[name]])',
-            ], $tableOptions);
-                $this->createTable('{{%auth_item}}', [
+        ], $tableOptions);
+        $this->createTable('{{%auth_item}}', [
             'name' => $this->string(64)->notNull(),
             'type' => $this->integer(11)->notNull(),
             'description' => $this->text(),
@@ -46,11 +51,11 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'lock' => $this->bigInteger(20),
             'PRIMARY KEY ([[name]])',
             'FOREIGN KEY ([[rule_name]]) REFERENCES {{%auth_rule}} ([[name]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
-                $this->createTable('{{%users}}', [
+        ], $tableOptions);
+        $this->createTable('{{%users}}', [
             'id' => $this->primaryKey(),
             'username' => $this->string(255)->notNull()->unique(),
-            'hash_id'=>$this->string(20)->notNull()->unique(),
+            'hash_id' => $this->string(20)->notNull()->unique(),
             'fullname' => $this->string(100),
             'RoleID' => $this->integer(11),
             'Image' => $this->string(100),
@@ -69,8 +74,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'lock' => $this->bigInteger(20),
             'mode' => $this->smallInteger(6)->defaultValue(1),
             'VerificationCode' => $this->Integer(11),
-            ], $tableOptions);
-                $this->createTable('{{%auth_assignment}}', [
+        ], $tableOptions);
+        $this->createTable('{{%auth_assignment}}', [
             'item_name' => $this->string(64)->notNull(),
             'user_id' => $this->integer(11)->notNull(),
             'created_at' => $this->integer(11),
@@ -78,15 +83,15 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'PRIMARY KEY ([[item_name]], [[user_id]])',
             'FOREIGN KEY ([[item_name]]) REFERENCES {{%auth_item}} ([[name]]) ON DELETE CASCADE ON UPDATE CASCADE',
             'FOREIGN KEY ([[user_id]]) REFERENCES {{%users}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
-                $this->createTable('{{%auth_item_child}}', [
+        ], $tableOptions);
+        $this->createTable('{{%auth_item_child}}', [
             'parent' => $this->string(64)->notNull(),
             'child' => $this->string(64)->notNull(),
             'lock' => $this->bigInteger(20),
             'PRIMARY KEY ([[parent]], [[child]])',
             'FOREIGN KEY ([[child]]) REFERENCES {{%auth_item}} ([[name]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
-                $this->createTable('{{%inquery_category}}', [
+        ], $tableOptions);
+        $this->createTable('{{%inquery_category}}', [
             'id' => $this->primaryKey(),
             'catname' => $this->string(255)->notNull(),
             'description' => $this->string(1000),
@@ -99,8 +104,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'updated_by' => $this->bigInteger(20),
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
-            ], $tableOptions);
-                $this->createTable('{{%inquery}}', [
+        ], $tableOptions);
+        $this->createTable('{{%inquery}}', [
             'id' => $this->primaryKey(),
             'uid' => $this->integer(11),
             'qdescription' => $this->string(2000)->notNull(),
@@ -120,15 +125,15 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'restored_by' => $this->bigInteger(20),
             'FOREIGN KEY ([[category]]) REFERENCES {{%inquery_category}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
             'FOREIGN KEY ([[uid]]) REFERENCES {{%users}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
-                $this->createTable('{{%invoice}}', [
+        ], $tableOptions);
+        $this->createTable('{{%invoice}}', [
             'id' => $this->integer(11)->notNull(),
             'date' => $this->datetime()->notNull()->defaultValue('0000-00-00 00:00:00'),
             'uid' => $this->integer(11)->notNull(),
             'status' => $this->integer(11)->notNull(),
-            'price' => $this->decimal(10,2)->notNull(),
-            'discount' => $this->decimal(10,0),
-            'tax' => $this->decimal(10,0),
+            'price' => $this->decimal(10, 2)->notNull(),
+            'discount' => $this->decimal(10, 0),
+            'tax' => $this->decimal(10, 0),
             'paymentmethod' => $this->string(255)->notNull(),
             'paydate' => $this->datetime(),
             'description' => $this->string(255),
@@ -143,8 +148,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
             'PRIMARY KEY ([[id]])',
-            ], $tableOptions);
-                $this->createTable('{{%log}}', [
+        ], $tableOptions);
+        $this->createTable('{{%log}}', [
             'id' => $this->primaryKey(),
             'userfullname' => $this->string(255)->defaultValue('0'),
             'ip' => $this->string(16)->notNull(),
@@ -159,8 +164,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'updated_by' => $this->bigInteger(20),
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
-            ], $tableOptions);
-                $this->createTable('{{%log_users}}', [
+        ], $tableOptions);
+        $this->createTable('{{%log_users}}', [
             'id' => $this->primaryKey(),
             'source_id' => $this->integer(11),
             'dest_id' => $this->integer(11)->notNull(),
@@ -176,8 +181,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'updated_by' => $this->bigInteger(20),
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
-            ], $tableOptions);
-                $this->createTable('{{%page}}', [
+        ], $tableOptions);
+        $this->createTable('{{%page}}', [
             'id' => $this->integer(11)->notNull(),
             'title' => $this->string(255),
             'css' => $this->text(),
@@ -194,8 +199,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
             'PRIMARY KEY ([[id]])',
-            ], $tableOptions);
-                $this->createTable('{{%menus}}', [
+        ], $tableOptions);
+        $this->createTable('{{%menus}}', [
             'id' => $this->integer(11)->notNull(),
             'title' => $this->string(255)->notNull(),
             'link' => $this->string(255),
@@ -212,9 +217,9 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'PRIMARY KEY ([[id]])',
             'FOREIGN KEY ([[pageID]]) REFERENCES {{%page}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
             'FOREIGN KEY ([[parent]]) REFERENCES {{%menus}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
+        ], $tableOptions);
 
-                $this->createTable('{{%notification}}', [
+        $this->createTable('{{%notification}}', [
             'id' => $this->primaryKey(),
             'resiverID' => $this->integer(11)->notNull(),
             'module' => $this->string(50)->notNull(),
@@ -232,11 +237,11 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
             'FOREIGN KEY ([[uid]]) REFERENCES {{%users}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
-                $this->createTable('{{%send_method}}', [
+        ], $tableOptions);
+        $this->createTable('{{%send_method}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string(255),
-            'price' => $this->decimal(10,2),
+            'price' => $this->decimal(10, 2),
             'status' => $this->integer(11),
             'lock' => $this->bigInteger(20),
             'created_at' => $this->date(),
@@ -245,8 +250,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'updated_by' => $this->bigInteger(20),
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
-            ], $tableOptions);
-                $this->createTable('{{%order}}', [
+        ], $tableOptions);
+        $this->createTable('{{%order}}', [
             'id' => $this->primaryKey(),
             'uid' => $this->integer(255)->notNull(),
             'date' => $this->datetime()->notNull()->defaultValue('0000-00-00 00:00:00'),
@@ -256,9 +261,9 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'description' => $this->string(255),
             'send_method' => $this->integer(11),
             'status' => $this->integer(11)->notNull(),
-            'tax' => $this->decimal(10,2),
-            'discount' => $this->decimal(10,2),
-            'price' => $this->decimal(10,2)->notNull(),
+            'tax' => $this->decimal(10, 2),
+            'discount' => $this->decimal(10, 2),
+            'price' => $this->decimal(10, 2)->notNull(),
             'UUID' => $this->string(32),
             'lock' => $this->bigInteger(20),
             'created_at' => $this->date(),
@@ -268,11 +273,11 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
             'FOREIGN KEY ([[send_method]]) REFERENCES {{%send_method}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
-                $this->createTable('{{%order_details}}', [
+        ], $tableOptions);
+        $this->createTable('{{%order_details}}', [
             'id' => $this->primaryKey(),
-            'price' => $this->decimal(10,2)->notNull(),
-            'total_price' => $this->decimal(10,2),
+            'price' => $this->decimal(10, 2)->notNull(),
+            'total_price' => $this->decimal(10, 2),
             'total' => $this->string(255)->notNull(),
             'dimensions' => $this->string(255),
             'name' => $this->string(255),
@@ -288,8 +293,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
             'FOREIGN KEY ([[order_id]]) REFERENCES {{%order}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
-                $this->createTable('{{%order_status_log}}', [
+        ], $tableOptions);
+        $this->createTable('{{%order_status_log}}', [
             'id' => $this->primaryKey(),
             'status' => $this->integer(11),
             'date' => $this->datetime(),
@@ -306,11 +311,13 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'restored_by' => $this->bigInteger(20),
             'FOREIGN KEY ([[order_id]]) REFERENCES {{%order}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
             'FOREIGN KEY ([[uid]]) REFERENCES {{%users}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
-                $this->createTable('{{%product}}', [
+        ], $tableOptions);
+        $this->createTable('{{%product}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string(255),
             'description' => $this->text(),
+            'specification' => $this->text(),
+            'technical_specification' => $this->text(),
             'UUID' => $this->string(32),
             'lock' => $this->bigInteger(20),
             'created_at' => $this->date(),
@@ -319,8 +326,9 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'updated_by' => $this->bigInteger(20),
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
-            ], $tableOptions);
-                $this->createTable('{{%product_gallery}}', [
+            'status' => $this->integer()->notNull()
+        ], $tableOptions);
+        $this->createTable('{{%product_gallery}}', [
             'id' => $this->primaryKey(),
             'product_id' => $this->integer(11),
             'url' => $this->string(255),
@@ -334,12 +342,12 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
             'FOREIGN KEY ([[product_id]]) REFERENCES {{%product}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
-                $this->createTable('{{%product_step_property}}', [
+        ], $tableOptions);
+        $this->createTable('{{%product_step_property}}', [
             'id' => $this->primaryKey(),
             'type' => $this->string(255),
             'title' => $this->string(255),
-            'price' => $this->decimal(10,2),
+            'price' => $this->decimal(10, 2),
             'mintotal' => $this->integer(11),
             'requre' => $this->smallInteger(4),
             'product_id' => $this->integer(11),
@@ -352,8 +360,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
             'FOREIGN KEY ([[product_id]]) REFERENCES {{%product}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
-                $this->createTable('{{%product_property_step}}', [
+        ], $tableOptions);
+        $this->createTable('{{%product_property_step}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string(255),
             'product_property' => $this->integer(11),
@@ -366,35 +374,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
             'FOREIGN KEY ([[product_property]]) REFERENCES {{%product_step_property}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
-                $this->createTable('{{%product_specifications}}', [
-            'id' => $this->primaryKey(),
-            'product_id' => $this->integer(11),
-            'title' => $this->string(255),
-            'UUID' => $this->string(32),
-            'lock' => $this->bigInteger(20),
-            'created_at' => $this->date(),
-            'updated_at' => $this->date(),
-            'created_by' => $this->bigInteger(20),
-            'updated_by' => $this->bigInteger(20),
-            'deleted_by' => $this->bigInteger(20),
-            'restored_by' => $this->bigInteger(20),
-            'FOREIGN KEY ([[product_id]]) REFERENCES {{%product}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
-                $this->createTable('{{%product_technical_specification}}', [
-            'id' => $this->primaryKey(),
-            'product_id' => $this->integer(11),
-            'texhnical_specifications' => $this->string(255),
-            'UUID' => $this->string(32),
-            'created_at' => $this->date(),
-            'updated_at' => $this->date(),
-            'created_by' => $this->bigInteger(20),
-            'updated_by' => $this->bigInteger(20),
-            'deleted_by' => $this->bigInteger(20),
-            'restored_by' => $this->bigInteger(20),
-            'FOREIGN KEY ([[product_id]]) REFERENCES {{%product}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
-                $this->createTable('{{%role}}', [
+        ], $tableOptions);
+        $this->createTable('{{%role}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string(50)->notNull(),
             'description' => $this->text()->notNull(),
@@ -406,8 +387,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'updated_by' => $this->bigInteger(20),
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
-            ], $tableOptions);
-                $this->createTable('{{%role_options}}', [
+        ], $tableOptions);
+        $this->createTable('{{%role_options}}', [
             'id' => $this->integer(11)->notNull(),
             'name' => $this->string(75)->notNull(),
             'description' => $this->text()->notNull(),
@@ -418,8 +399,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'updated_by' => $this->bigInteger(20),
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
-            ], $tableOptions);
-                $this->createTable('{{%settings}}', [
+        ], $tableOptions);
+        $this->createTable('{{%settings}}', [
             'setting_id' => $this->primaryKey(),
             'setting_key' => $this->string(255)->notNull(),
             'setting_value' => $this->text()->notNull(),
@@ -430,8 +411,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'updated_by' => $this->bigInteger(20),
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
-            ], $tableOptions);
-                $this->createTable('{{%slider}}', [
+        ], $tableOptions);
+        $this->createTable('{{%slider}}', [
             'id' => $this->primaryKey(),
             'picture' => $this->string(100)->notNull(),
             'position' => $this->integer(11)->notNull(),
@@ -445,8 +426,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'updated_by' => $this->bigInteger(20),
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
-            ], $tableOptions);
-                $this->createTable('{{%ticket_head}}', [
+        ], $tableOptions);
+        $this->createTable('{{%ticket_head}}', [
             'id' => $this->primaryKey(),
             'user_id' => $this->integer(11)->notNull(),
             'department' => $this->string(255),
@@ -460,8 +441,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
             'FOREIGN KEY ([[user_id]]) REFERENCES {{%users}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
-                $this->createTable('{{%ticket_body}}', [
+        ], $tableOptions);
+        $this->createTable('{{%ticket_body}}', [
             'id' => $this->primaryKey(),
             'id_head' => $this->integer(11)->notNull(),
             'name_user' => $this->string(255),
@@ -475,8 +456,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
             'FOREIGN KEY ([[id_head]]) REFERENCES {{%ticket_head}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
-                $this->createTable('{{%ticket_file}}', [
+        ], $tableOptions);
+        $this->createTable('{{%ticket_file}}', [
             'id' => $this->integer(11)->notNull(),
             'id_body' => $this->integer(11)->notNull(),
             'fileName' => $this->string(255)->notNull(),
@@ -488,12 +469,12 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'restored_by' => $this->bigInteger(20),
             'PRIMARY KEY ([[id]])',
             'FOREIGN KEY ([[id_body]]) REFERENCES {{%ticket_body}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
-                $this->createTable('{{%transaction}}', [
+        ], $tableOptions);
+        $this->createTable('{{%transaction}}', [
             'id' => $this->primaryKey(),
             'uid' => $this->integer(11),
             'date' => $this->datetime(),
-            'price' => $this->decimal(10,2),
+            'price' => $this->decimal(10, 2),
             'description' => $this->string(255),
             'invoice' => $this->integer(11),
             'UUID' => $this->string(32),
@@ -505,8 +486,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
             'FOREIGN KEY ([[uid]]) REFERENCES {{%users}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
-                $this->createTable('{{%user_info}}', [
+        ], $tableOptions);
+        $this->createTable('{{%user_info}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string(255),
             'family' => $this->string(255),
@@ -527,7 +508,7 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'file' => $this->string(255),
             'lat' => $this->string(255),
             'lng' => $this->string(255),
-            'charge' => $this->decimal(10,0),
+            'charge' => $this->decimal(10, 0),
             'uid' => $this->integer(11),
             'UUID' => $this->string(32),
             'lock' => $this->bigInteger(20),
@@ -540,8 +521,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'gender' => $this->integer(11),
             'vocation' => $this->string(255),
             'FOREIGN KEY ([[uid]]) REFERENCES {{%users}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
-            ], $tableOptions);
-                
+        ], $tableOptions);
+
     }
 
     public function safeDown()
@@ -555,8 +536,6 @@ class m170829_140101_printingoffice extends \yii\db\Migration
         $this->dropTable('{{%settings}}');
         $this->dropTable('{{%role_options}}');
         $this->dropTable('{{%role}}');
-        $this->dropTable('{{%product_technical_specification}}');
-        $this->dropTable('{{%product_specifications}}');
         $this->dropTable('{{%product_property_step}}');
         $this->dropTable('{{%product_step_property}}');
         $this->dropTable('{{%product_gallery}}');
