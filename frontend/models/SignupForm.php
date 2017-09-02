@@ -144,7 +144,7 @@ class SignupForm extends Model
                 $user->username = $mobile;
                 $user->updated_at = time();
             }
-            $url = "https://api.kavenegar.com/v1/" . Yii::$app->systemCore->SMSPanelAPI . "/verify/lookup.json?receptor=$mobile&token=$token&template=verify";
+
         } else {
             $user = new User();
             $user->VerificationCode = $token;
@@ -163,6 +163,7 @@ class SignupForm extends Model
             $info->uid = $user->id;
             $info->save();
             if (empty(Yii::$app->systemCore->SmsDebug)) {
+                $url = "https://api.kavenegar.com/v1/" . Yii::$app->systemCore->SMSPanelAPI . "/verify/lookup.json?receptor=$mobile&token=$token&template=verify";
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $url);
                 curl_setopt($ch, CURLOPT_NOBODY, true);
