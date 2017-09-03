@@ -21,6 +21,7 @@
     "bootstrap-fileinput": "^4.4.3",
     "eonasdan-bootstrap-datetimepicker": "^4.17.47",
     "image-grid-effects": "*",
-    "bootstrap-persian-datetimepicker": "^4.7.147"
+    "bootstrap-persian-datetimepicker": "^4.7.147",
+    "masonry": "^4.2.0"
   }
 }

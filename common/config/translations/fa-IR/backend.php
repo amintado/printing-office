@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,12 +8,14 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 return [
 
     
-    
+
+    'update'=>'بروزرسانی',
+    'Update'=>'بروزرسانی',
 'ID'=>'شناسه',
 'status'=>'وضعیت',
 'Update {modelClass}: '=>'بروزرسانی اطلاعات {modelClass}',

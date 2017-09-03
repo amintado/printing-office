@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,12 +8,15 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
+use common\models\User;
 use yii\db\Schema;
 
 class m170829_140101_printingoffice extends \yii\db\Migration
 {
+
+
     public function safeUp()
     {
         $tableOptions = null;
@@ -326,7 +329,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'updated_by' => $this->bigInteger(20),
             'deleted_by' => $this->bigInteger(20),
             'restored_by' => $this->bigInteger(20),
-            'status' => $this->integer()->notNull()
+            'status' => $this->integer()->notNull(),
+            'hash_id'=>$this->string(30)->unique(),
         ], $tableOptions);
         $this->createTable('{{%product_gallery}}', [
             'id' => $this->primaryKey(),
@@ -523,6 +527,21 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'FOREIGN KEY ([[uid]]) REFERENCES {{%users}} ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
         ], $tableOptions);
 
+        $this->addColumn('{{%product_gallery}}','hash_id','varchar(32)');
+
+        $user=User::find()->one();
+        if (empty($user)){
+            $user=new User();
+            $user->username='admin';
+            $user->auth_key='FnfcYcBGWkbyFx9IBjpAsJSPleOlxAQa';
+            $user->id=1;
+            $user->fullname= Yii::t('common', 'Admin User Fullname');
+            $user->password_hash='$2y$13$iHOwA/3FOQWHLA.Ck6lGO.Nfd5vTo9iNNIIFl6RQ04hNT3n8EgJ9m';
+            $user->email=Yii::$app->systemCore->AdminEmail;
+            $user->status=User::STATUS_ACTIVE;
+            $user->hash_id=hash('adler32',1);
+            $user->save();
+        }
     }
 
     public function safeDown()

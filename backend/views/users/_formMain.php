@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,12 +8,13 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 use common\assets\FileInputAsset;
 use common\models\Role;
 use common\models\User;
 use kartik\select2\Select2;
+use kartik\widgets\FileInput;
 use yii\helpers\ArrayHelper;
 use yii\web\View;
 use yii\widgets\MaskedInput;
@@ -27,13 +28,20 @@ FileInputAsset::register($this);
 $this->registerJs("
 
     
-        $(\"#Image\").fileinput({
-            rtl: false,
-            allowedFileExtensions: [\"jpg\", \"png\",\"jpeg\"],
-            showUpload: false,
-            maxFileCount: 1,
-            mainClass: \"input-group-lg\"
-        });
+
+    $('#input-fa').fileinput(
+    {
+    language: '" . Yii::$app->systemCore->product['images']['language'] . "',
+    rtl: true,
+    'showUpload':false,
+     'previewFileType':'" . Yii::$app->systemCore->product['images']['previewFileType'] . "',
+     theme: 'fa',
+      maxFileCount: " . Yii::$app->systemCore->product['images']['maxFileCount'] . ",
+      showRemove: true,
+      maxFileSize: " . Yii::$app->systemCore->product['images']['maxFileSize'] . ",
+     }
+    );
+
     
     
     
@@ -93,11 +101,16 @@ $this->registerJs("
     <?= $form->field($model, 'status')->widget(Select2::className(), [
         'data' => User::statuses_select2(),
     ]) ?>
+    <?= $form->field($model, 'image')->widget(FileInput::classname(), [
+        'options' =>
+            [
+                'accept' => 'image/*',
+                'multiple' => true,
+//            'name' => 'images[]',
+                'enctype'=>'multipart/form-data'
+            ],
+    ]); ?>
 
 </div>
-<div class="row">
-    <div class="col-md-10">
-        <label class="control-label">تصویر کاربر رو انتخاب کنید</label>
-        <input id="Image" name="Images[]" type="file" multiple class="file-loading"></div>
-</div>
+
 

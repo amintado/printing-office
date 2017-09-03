@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,7 +8,7 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 use common\config\components\functions;
 use common\models\User;
@@ -21,7 +21,7 @@ use common\models\User;
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-right image">
-                <img src="<?= functions::ImageReturn(Yii::$app->user->getId()) ?>" class="img-circle" alt="User Image"/>
+                <img src="<?= functions::ImageReturn(Yii::$app->user->getId()) ?>" class="img-circle" alt="User Image" style="height: 45px;width: 45px" />
             </div>
             <div class="pull-right info">
                 <p><?= User::findOne(Yii::$app->user->getId())->fullname ?></p>
@@ -59,6 +59,11 @@ use common\models\User;
 //                        ['label'=>'مدل های کاربری','icon'=>'filter','url'=>['/user-mode']]
 
                     ],
+                ],
+                [
+                  'label'=>'مدیریت محصولات',
+                  'icon'=>'inbox',
+                    'url'=>['/product']
                 ],
                 [
                     'label' => 'سیستم',

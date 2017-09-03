@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,7 +8,7 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 use yii\web\Request;
 
@@ -54,6 +54,10 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => true,
+            'rules' =>
+            [
+                'product/<id:\d+>'=>'product/view'
+            ]
         ],
         'urlManagerBackend' => [
             'class' => 'yii\web\urlManager',

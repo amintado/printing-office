@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,7 +8,7 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 namespace backend\controllers;
 
@@ -22,6 +22,7 @@ use const FILTER_VALIDATE_FLOAT;
 use function filter_var;
 use function GuzzleHttp\Psr7\str;
 use function intlcal_field_difference;
+use mikehaertl\tmp\File;
 use const null;
 use function pos;
 use function trim;
@@ -32,6 +33,7 @@ use common\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * UsersController implements the CRUD actions for users model.
@@ -40,7 +42,7 @@ class UsersController extends Controller
 {
     protected $EncryptionKey = 'chap_mjkj';
     protected $uid = null;
-
+    protected $image_dir='../../../dl/profiles/';
     public function behaviors()
     {
         return [
@@ -160,6 +162,10 @@ class UsersController extends Controller
         if ($model->HandleUserPost($post) ) {
             $InfoModel->uid=$model->id;
             if ($InfoModel->HandleUserInfoPost($post)){
+
+                $this->savePicture($model);
+
+
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
@@ -170,7 +176,30 @@ class UsersController extends Controller
             ]);
         }
     }
+    public function savePicture($model){
+        /**
+         * @var $model User
+         */
 
+        $file=UploadedFile::getInstance($model,'image');
+
+        if (empty($file)){
+            return;
+        }
+        {
+            //---------------- validate value name -------------------
+            $model->image = str_replace(' ', '', $model->image);
+        }
+        if (!realpath(__DIR__ . $this->image_dir )) {
+            mkdir(realpath(__DIR__ . '../../../') . '/dl/profiles/', 0700, true);
+        };
+        if (
+        $file->saveAs(realpath(__DIR__ . $this->image_dir) . '/' . $model->hash_id .'.'.$file->extension)
+        ) {
+            $model->Image=$model->hash_id.'.'.$file->extension;
+            $model->save();
+        }
+    }
     /**
      * Deletes an existing users model.
      * If deletion is successful, the browser will be redirected to the 'index' page.

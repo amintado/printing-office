@@ -1,7 +1,19 @@
 <?php
+/*******************************************************************************
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ ******************************************************************************/
 
 namespace common\models\base;
 
+use common\models\behaviors\DeletedBehavior;
+use common\models\traits\GlobalTrait;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;
@@ -21,13 +33,14 @@ use yii\behaviors\BlameableBehavior;
  * @property string $updated_by
  * @property string $deleted_by
  * @property string $restored_by
+ * @property string $hash_id
  *
  * @property \common\models\Product $product
  */
 class ProductGallery extends \yii\db\ActiveRecord
 {
     use \mootensai\relation\RelationTrait;
-
+    use GlobalTrait;
     private $_rt_softdelete;
     private $_rt_softrestore;
 
@@ -65,7 +78,8 @@ class ProductGallery extends \yii\db\ActiveRecord
             [['url', 'img_name'], 'string', 'max' => 255],
             [['UUID'], 'string', 'max' => 32],
             [['lock'], 'default', 'value' => '0'],
-            [['lock'], 'mootensai\components\OptimisticLockValidator']
+            [['lock'], 'mootensai\components\OptimisticLockValidator'],
+            [['hash_id'], 'string', 'max' => 32]
         ];
     }
 
@@ -130,6 +144,12 @@ class ProductGallery extends \yii\db\ActiveRecord
                 'createdByAttribute' => 'created_by',
                 'updatedByAttribute' => 'updated_by',
             ],
+            'delete'=>[
+                'class'=>DeletedBehavior::className(),
+                'deleted_by' => 'deleted_by',
+                'value' => 0
+
+            ]
         ];
     }
 
@@ -157,7 +177,7 @@ class ProductGallery extends \yii\db\ActiveRecord
 
     /**
      * @inheritdoc
-     * @return \app\models\TabanProductGalleryQuery the active query used by this AR class.
+     * @return \common\models\ProductGalleryQuery the active query used by this AR class.
      */
     public static function find()
     {

@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,7 +8,7 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 namespace common\models\base;
 
@@ -205,11 +205,11 @@ class UserInfo extends \yii\db\ActiveRecord
 
     /**
      * @inheritdoc
-     * @return \app\models\TabanUserInfoQuery the active query used by this AR class.
+     * @return \common\models\UserInfoQuery the active query used by this AR class.
      */
-//    public static function find()
-//    {
-//        $query = new \common\models\UserInfoQuery(get_called_class());
-//        return $query->where(['deleted_by' => 0]);
-//    }
+    public static function find()
+    {
+        $query = new \common\models\UserInfoQuery(get_called_class());
+        return $query->where(['deleted_by' => 0]);
+    }
 }

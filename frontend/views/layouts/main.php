@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,11 +8,12 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use airani\bootstrap\BootstrapRtlAsset;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -21,6 +22,7 @@ use frontend\assets\AppAsset;
 use common\widgets\Alert;
 
 AppAsset::register($this);
+BootstrapRtlAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -49,6 +51,7 @@ AppAsset::register($this);
         ['label' => 'خانه', 'url' => ['/site/index']],
         ['label' => 'درباره ی ما', 'url' => ['/site/about']],
         ['label' => 'تماس با ما', 'url' => ['/site/contact']],
+        ['label' => 'محصولات', 'url' => ['/product']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'ثبت نام/لاگین', 'url' => ['/site/signup']];
@@ -70,16 +73,16 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
-    <div class="container">
+    <div class="container" style="margin-top: 73px">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>
+
+
 </div>
-
-
 
 <?php $this->endBody() ?>
 </body>

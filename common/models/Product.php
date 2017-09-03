@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,7 +8,7 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 namespace common\models;
 
@@ -20,6 +20,8 @@ use \common\models\base\Product as BaseTabanProduct;
  */
 class Product extends BaseTabanProduct
 {
+
+
     /**
      * @inheritdoc
      */
@@ -28,13 +30,17 @@ class Product extends BaseTabanProduct
         return array_replace_recursive(parent::rules(),
 	    [
             [['description','specification','technical_specification'], 'string'],
+
             [['lock', 'created_by', 'updated_by', 'deleted_by', 'restored_by'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['status'],'integer'],
+            [['created_at', 'updated_at','images'], 'safe'],
             [['title'], 'string', 'max' => 255],
             [['UUID'], 'string', 'max' => 32],
+            [['hash_id'], 'string', 'max' => 30],
+            [['description','title'], 'required'],
             [['lock'], 'default', 'value' => '0'],
             [['lock'], 'mootensai\components\OptimisticLockValidator']
         ]);
     }
-	
+
 }

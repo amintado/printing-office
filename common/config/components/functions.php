@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,7 +8,7 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 namespace common\config\components;
 use common\models\Galleries;
@@ -211,7 +211,7 @@ class functions extends Component {
 
             if (!empty($pic)) {
                 try{
-                    $headers=get_headers(Yii::$app->systemCore->downloadURL. 'http://dl.tabanchap.ir/profiles' . '/' . $pic);
+                    $headers=get_headers(Yii::$app->systemCore->downloadURL. '/profiles' . '/' . $pic);
                     $result =stripos($headers[0],"200 OK")?true:false;
                 }catch (Exception $e){
                     $result=false;

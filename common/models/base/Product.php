@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,10 +8,14 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 namespace common\models\base;
 
+use common\models\behaviors\DeletedBehavior;
+use common\models\behaviors\HashBehavior;
+use common\models\traits\GlobalTrait;
+use mysqli;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;
@@ -32,21 +36,31 @@ use yii\behaviors\BlameableBehavior;
  * @property string $updated_by
  * @property string $deleted_by
  * @property string $restored_by
+ * @property string $hash_id
+ * @property integer $status
  *
- * @property \common\models\ProductGallery[] $tabanProductGalleries
- * @property \common\models\ProductStepProperty[] $tabanProductStepProperties
+ *
+ *
+ * @property string $statusText
+ *
+ * @property \common\models\ProductGallery[] $productGalleries
+ * @property \common\models\ProductStepProperty[] $productStepProperties
  */
 class Product extends \yii\db\ActiveRecord
 {
     use \mootensai\relation\RelationTrait;
 
-    const STATUS_ACTIVR=1;
-    const STATUS_INACTIVE=0;
+    use GlobalTrait;
+
+    const STATUS_ACTIVR = 1;
+    const STATUS_INACTIVE = 0;
 
     private $_rt_softdelete;
     private $_rt_softrestore;
+    public $images = [];
 
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct();
         $this->_rt_softdelete = [
             'deleted_by' => \Yii::$app->user->id,
@@ -59,16 +73,14 @@ class Product extends \yii\db\ActiveRecord
     }
 
     /**
-    * This function helps \mootensai\relation\RelationTrait runs faster
-    * @return array relation names of this model
-    */
+     * This function helps \mootensai\relation\RelationTrait runs faster
+     * @return array relation names of this model
+     */
     public function relationNames()
     {
         return [
-            'tabanProductGalleries',
-            'tabanProductSpecifications',
-            'tabanProductStepProperties',
-            'tabanProductTechnicalSpecifications'
+            'productGalleries',
+            'productStepProperties',
         ];
     }
 
@@ -78,11 +90,16 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['description','specification','technical_specification'], 'string'],
+            [['description', 'specification', 'technical_specification'], 'string'],
             [['lock', 'created_by', 'updated_by', 'deleted_by', 'restored_by'], 'integer'],
+
+
+            [['status'],'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['title'], 'string', 'max' => 255],
             [['UUID'], 'string', 'max' => 32],
+            [['hash_id'], 'string', 'max' => 30],
+            [['description', 'title'], 'required'],
             [['lock'], 'default', 'value' => '0'],
             [['lock'], 'mootensai\components\OptimisticLockValidator']
         ];
@@ -103,7 +120,8 @@ class Product extends \yii\db\ActiveRecord
      * return string name of field are used to stored optimistic lock
      *
      */
-    public function optimisticLock() {
+    public function optimisticLock()
+    {
         return 'lock';
     }
 
@@ -124,39 +142,39 @@ class Product extends \yii\db\ActiveRecord
             'status' => Yii::t('backend', 'Status'),
         ];
     }
-    
+
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTabanProductGalleries()
+    public function getProductGalleries()
     {
         return $this->hasMany(\common\models\ProductGallery::className(), ['product_id' => 'id']);
     }
-        
+
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTabanProductSpecifications()
+    public function getProductSpecifications()
     {
         return $this->hasMany(\common\models\ProductSpecifications::className(), ['product_id' => 'id']);
     }
-        
+
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTabanProductStepProperties()
+    public function getProductStepProperties()
     {
         return $this->hasMany(\common\models\ProductStepProperty::className(), ['product_id' => 'id']);
     }
-        
+
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTabanProductTechnicalSpecifications()
+    public function getProductTechnicalSpecifications()
     {
         return $this->hasMany(\common\models\ProductTechnicalSpecification::className(), ['product_id' => 'id']);
     }
-    
+
     /**
      * @inheritdoc
      * @return array mixed
@@ -175,38 +193,29 @@ class Product extends \yii\db\ActiveRecord
                 'createdByAttribute' => 'created_by',
                 'updatedByAttribute' => 'updated_by',
             ],
+            'deleted' => [
+                'class' => DeletedBehavior::className(),
+                'deleted_by' => 'deleted_by',
+                'value' => 0
+            ],
+
         ];
     }
 
-    /**
-     * The following code shows how to apply a default condition for all queries:
-     *
-     * ```php
-     * class Customer extends ActiveRecord
-     * {
-     *     public static function find()
-     *     {
-     *         return parent::find()->where(['deleted' => false]);
-     *     }
-     * }
-     *
-     * // Use andWhere()/orWhere() to apply the default condition
-     * // SELECT FROM customer WHERE `deleted`=:deleted AND age>30
-     * $customers = Customer::find()->andWhere('age>30')->all();
-     *
-     * // Use where() to ignore the default condition
-     * // SELECT FROM customer WHERE age>30
-     * $customers = Customer::find()->where('age>30')->all();
-     * ```
-     */
+
 
     /**
      * @inheritdoc
-     * @return \app\models\TabanProductQuery the active query used by this AR class.
+     * @return \common\models\ProductQuery the active query used by this AR class.
      */
     public static function find()
     {
         $query = new \common\models\ProductQuery(get_called_class());
         return $query->where(['deleted_by' => 0]);
     }
+
+
+
+
+
 }

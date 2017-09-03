@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,7 +8,7 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 namespace common\models;
 
@@ -59,7 +59,7 @@ class User extends ActiveRecord implements IdentityInterface
     const IsPrivate_no = 0; //خیر
     const IsPrivate_yes = 1; //بله
 
-    public $Image;
+    public $image;
 
     /**
      * @inheritdoc

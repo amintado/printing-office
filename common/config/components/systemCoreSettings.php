@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,7 +8,7 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 /**
  * Created by PhpStorm.
@@ -29,6 +29,15 @@ class systemCoreSettings extends Component
     public $KavehNegarSMSAPI_key = '';
     public $companyName = '';
     public $SMSPanelAPI = '';
+    /**
+     * This email Will Use In This Parts Of System::
+     *
+     *
+     * Admin User Email In Users Table
+     *
+     * @var string
+     */
+    public $AdminEmail='amintado@gmail.com';
     /**
      * @var bool
      * if this attribute equal TRUE, then system will not sent any SMS request CURL

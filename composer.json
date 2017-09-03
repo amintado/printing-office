@@ -64,8 +64,9 @@
     },
     "scripts":{
         "post-install-cmd":[
-
-            "bower install persian-datapicker",
+            "bower install persian-datepicker",
+            "bower install bootstrap3-dialog",
+            "bower install masonry --save",
             "bower install image-grid-effects",
             "bower install fine-uploader",
             "bower install bootstrap-fileinput",
