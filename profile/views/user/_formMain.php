@@ -10,7 +10,7 @@
  * All rights reserved.
  */
 
-use backend\assets\FileInputAsset;
+use common\assets\FileInputAsset;
 use common\models\Role;
 use common\models\User;
 use kartik\select2\Select2;
@@ -28,7 +28,10 @@ $this->registerJs("
 
     
         $(\"#Image\").fileinput({
-            rtl: false,
+        language:'fa',
+            rtl: true,
+            theme: \"fa\",
+            showRemove: true,
             allowedFileExtensions: [\"jpg\", \"png\",\"jpeg\"],
             showUpload: false,
             maxFileCount: 1,

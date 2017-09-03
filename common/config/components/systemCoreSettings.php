@@ -47,7 +47,7 @@ class systemCoreSettings extends Component
      */
     public $LoginDuration = 2592000;
 
-    public $AppVersion = '0.1';
+
     /**
      * @var string
      *
@@ -71,21 +71,34 @@ class systemCoreSettings extends Component
      */
     public $elasticMail =
         [
-            'username'=>'',
-            'api_key'=>'',
-            'from_email'=>'',
-            'from_name'=>''
+            'username' => '',
+            'api_key' => '',
+            'from_email' => '',
+            'from_name' => ''
 
         ];
 
-    public $product=
+    public $product =
         [
-          'images'=>
-          [
-              'maxFileCount'=>10,
-              'maxFileSize'=>25600,//25MB
-              'previewFileType'=>'.jpg,.jpeg,.tif',
-              'language'=>'fa'
-          ]
+            'images' =>
+                [
+                    'maxFileCount' => 10,
+                    'maxFileSize' => 25600,//25MB
+                    'previewFileType' => '.jpg,.jpeg,.tif',
+                    'language' => 'fa'
+                ]
+        ];
+
+    public $poweredByTexts =
+        [
+            'profile' => '<strong> بخش مدیریت <a href="http://shahrmap.ir">سایت شهرمپ</a></strong> همه ی حقوق محفوظ است',
+            'backend' => '<strong> بخش مدیریت <a href="http://shahrmap.ir">سایت شهرمپ</a></strong> همه ی حقوق محفوظ است'
+        ];
+
+    public $versions=
+        [
+          'profile'=>' <b>نسخه</b> 1',
+          'backend'=>' <b>نسخه</b> 1',
+          'frontend'=>' <b>نسخه</b> 1'
         ];
 }

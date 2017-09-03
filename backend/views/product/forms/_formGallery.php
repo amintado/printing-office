@@ -11,7 +11,7 @@
  */
 
 
-use backend\assets\FileInputAsset;
+use common\assets\FileInputAsset;
 use yii\web\View;
 
 /**

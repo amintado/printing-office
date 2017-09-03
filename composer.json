@@ -64,9 +64,12 @@
     },
     "scripts":{
         "post-install-cmd":[
+
+            "bower install persian-datapicker",
             "bower install image-grid-effects",
             "bower install fine-uploader",
-            "bower install bootstrap-fileinput"
+            "bower install bootstrap-fileinput",
+            "bower install --force-latest"
         ]
     }
 }

@@ -16,12 +16,6 @@ use common\models\UserInfo;
 use yii\widgets\DetailView;
 
 /**
- * Created by PhpStorm.
- * User: amin__000
- * Date: 8/28/2017
- * Time: 6:07 PM
- */
-/**
  * @var $user User
  * @var $info UserInfo
  * @var $title string

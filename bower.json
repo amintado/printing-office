@@ -1,0 +1,26 @@
+{
+  "name": "printing-office",
+  "homepage": "https://github.com/amintado/printing-office",
+  "authors": [
+    "غلامرضا بهشتیان <amintado@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "GPL v3.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fine-uploader": "^5.13.0",
+    "office-ui-fabric-core": "^7.2.0",
+    "bootstrap-fileinput": "^4.4.3",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
+    "image-grid-effects": "*",
+    "bootstrap-persian-datetimepicker": "^4.7.147"
+  }
+}

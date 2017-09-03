@@ -48,9 +48,10 @@ use dmstr\widgets\Alert;
 
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-        <b>نسخه</b> <?= Yii::$app->systemCore->AppVersion ?>
+        <?= Yii::$app->systemCore->versions['backend'] ?>
+        <?= Yii::$app->systemCore->poweredByTexts['backend'] ?>
     </div>
-    <strong>  @ <?= Yii::$app->systemCore->companyName ?></strong> همه ی حقوق محفوظ است
+
 </footer>
 
 <!-- Control Sidebar -->

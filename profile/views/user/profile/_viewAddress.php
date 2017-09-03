@@ -1,15 +1,20 @@
 <?php
+/**
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ */
 
 use common\models\User;
 use common\models\UserInfo;
 use yii\widgets\DetailView;
 
-/**
- * Created by PhpStorm.
- * User: amin__000
- * Date: 8/28/2017
- * Time: 6:07 PM
- */
+
 /**
  * @var $user User
  * @var $info UserInfo

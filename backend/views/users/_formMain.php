@@ -10,7 +10,7 @@
  * All rights reserved.
  */
 
-use backend\assets\FileInputAsset;
+use common\assets\FileInputAsset;
 use common\models\Role;
 use common\models\User;
 use kartik\select2\Select2;

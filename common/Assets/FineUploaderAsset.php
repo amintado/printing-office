@@ -17,23 +17,19 @@
  * Time: 8:55 PM
  */
 
-namespace backend\assets;
+namespace common\assets;
 
 
 use yii\web\AssetBundle;
 
-class ImageGrigAsset extends AssetBundle
+class FineUploaderAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor//bower/image-grid-effects';
+    public $sourcePath = '@vendor//bower/fine-uploader';
     public $css = [
-        'css/demo.css',
+        'dist/fine-uploader-gallery.css',
     ];
     public $js=[
-        'js/modernizr-custom.js',
-        'js/imagesloaded.pkgd.min.js',
-        'js/masonry.pkgd.min.js',
-        'js/classie.js',
-        'js/main.js'
+        'dist/fine-uploader.js'
 
     ];
     public $depends = [
