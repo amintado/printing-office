@@ -64,7 +64,6 @@
     },
     "scripts":{
         "post-install-cmd":[
-            "npm install -g bower",
             "bower install image-grid-effects",
             "bower install fine-uploader",
             "bower install bootstrap-fileinput"
