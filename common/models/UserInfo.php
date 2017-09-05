@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,7 +8,7 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 namespace common\models;
 
@@ -28,17 +28,20 @@ class UserInfo extends BaseTabanUserInfo
     public function rules()
     {
         return array_replace_recursive(parent::rules(),
-	    [
-            [['birthday', 'created_at', 'updated_at'], 'safe'],
-            [['charge'], 'number'],
-            [['uid', 'lock', 'created_by', 'updated_by', 'deleted_by', 'restored_by'], 'integer'],
-            [['name', 'family', 'workname', 'state', 'city', 'tel1', 'tel2', 'tel3', 'mob1', 'mob2', 'website', 'jobcategory', 'address', 'file', 'lat', 'lng'], 'string', 'max' => 255],
-            [['nationCode', 'postalcode'], 'string', 'max' => 10],
-            [['UUID'], 'string', 'max' => 32],
-            [['lock'], 'default', 'value' => '0'],
-            [['lock'], 'mootensai\components\OptimisticLockValidator']
-        ]);
+            [
+                [['birthday', 'created_at', 'updated_at'], 'safe'],
+                [['charge'], 'number'],
+                [['uid', 'lock', 'created_by', 'updated_by', 'deleted_by', 'restored_by'], 'integer'],
+                [['name', 'family', 'workname', 'state', 'city', 'tel1', 'tel2', 'tel3', 'mob1', 'mob2', 'website', 'jobcategory', 'address', 'file', 'lat', 'lng'], 'string', 'max' => 255],
+                [['nationCode', 'postalcode'], 'string', 'max' => 10],
+                [['UUID'], 'string', 'max' => 32],
+                [['lock'], 'default', 'value' => '0'],
+                [['lock'], 'mootensai\components\OptimisticLockValidator']
+            ]);
     }
+
+
+
 
     protected function UpdateUserInfo($model, $data)
     {
@@ -140,11 +143,12 @@ class UserInfo extends BaseTabanUserInfo
             return false;
         }
     }
+
     protected function CreateUserInfo($data)
     {
         {//---------------- Create New User Info -------------------
-            $model=new UserInfo();
-            $model->uid=$this->uid;
+            $model = new UserInfo();
+            $model->uid = $this->uid;
         }
 
 
@@ -245,6 +249,7 @@ class UserInfo extends BaseTabanUserInfo
             return false;
         }
     }
+
     protected function CheckNationalCode($code)
     {
         if (strlen($code) <> 10) {
@@ -290,6 +295,7 @@ class UserInfo extends BaseTabanUserInfo
             }
         }
     }
+
     public function HandleUserInfoPost($post)
     {
         //---------------- Check Posted Parameters -------------------
@@ -310,6 +316,7 @@ class UserInfo extends BaseTabanUserInfo
 
 
     }
+
     /**
      * this function will set a flash message for show to user
      * @param $key

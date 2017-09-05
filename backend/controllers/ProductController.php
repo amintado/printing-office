@@ -31,7 +31,7 @@ use yii\web\UploadedFile;
 class ProductController extends Controller
 {
 
-    public $gallery_dir = '../../../dl/product';
+    public $gallery_dir = '../../../dl/product/';
 
     public function behaviors()
     {
