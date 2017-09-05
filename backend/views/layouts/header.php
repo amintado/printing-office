@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,7 +8,7 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 use common\config\components\functions;
 use common\models\User;
@@ -23,7 +23,7 @@ $fullname=User::findOne(Yii::$app->user->getId() )->fullname;
 
 <header class="main-header">
 
-    <?= Html::a('<span class="logo-mini">تابان</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
+    <?= Html::a('<span class="logo-mini">تابان</span><span class="logo-lg">' . Yii::$app->systemCore->companyName . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
 
     <nav class="navbar navbar-static-top" role="navigation">
 
