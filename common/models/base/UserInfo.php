@@ -59,17 +59,17 @@ class UserInfo extends \yii\db\ActiveRecord
     private $_rt_softdelete;
     private $_rt_softrestore;
 
-    public function __construct(){
-        parent::__construct();
-        $this->_rt_softdelete = [
-            'deleted_by' => \Yii::$app->user->id,
-            'restored_by' => \Yii::$app->user->id,
-        ];
-        $this->_rt_softrestore = [
-            'deleted_by' => 0,
-            'restored_by' => date('Y-m-d H:i:s'),
-        ];
-    }
+//    public function __construct(){
+//        parent::__construct();
+//        $this->_rt_softdelete = [
+//            'deleted_by' => \Yii::$app->user->id,
+//            'restored_by' => \Yii::$app->user->id,
+//        ];
+//        $this->_rt_softrestore = [
+//            'deleted_by' => 0,
+//            'restored_by' => date('Y-m-d H:i:s'),
+//        ];
+//    }
 
     /**
     * This function helps \mootensai\relation\RelationTrait runs faster
