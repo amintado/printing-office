@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,7 +8,7 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 namespace profile\controllers;
 
@@ -34,6 +34,8 @@ use yii\web\ForbiddenHttpException;
 
 class UserController extends Controller {
     protected $uid = null;
+    protected $image_dir='../../../dl/profiles/';
+
     public function behaviors() {
         return [
             'verbs' => [
@@ -93,6 +95,7 @@ class UserController extends Controller {
         }
 
         if ($model->HandleUserPostProfile($post) && $InfoModel->HandleUserInfoPost($post)) {
+            $this->savePicture($model);
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
 
@@ -102,6 +105,32 @@ class UserController extends Controller {
             ]);
         }
     }
+
+    public function savePicture($model){
+        /**
+         * @var $model User
+         */
+
+        $file=UploadedFile::getInstance($model,'image');
+
+        if (empty($file)){
+            return;
+        }
+        {
+            //---------------- validate value name -------------------
+            $model->image = str_replace(' ', '', $model->image);
+        }
+        if (!realpath(__DIR__ . $this->image_dir )) {
+            mkdir(realpath(__DIR__ . '../../../') . '/dl/profiles/', 0700, true);
+        };
+        if (
+        $file->saveAs(realpath(__DIR__ . $this->image_dir) . '/' . $model->hash_id .'.'.$file->extension)
+        ) {
+            $model->Image=$model->hash_id.'.'.$file->extension;
+            $model->save();
+        }
+    }
+
     protected function findModelInfo($id)
     {
         if (($model = UserInfo::find()->where(['uid'=>$id])->one()) !== null) {

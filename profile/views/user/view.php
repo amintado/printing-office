@@ -1,4 +1,14 @@
 <?php
+/*******************************************************************************
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ ******************************************************************************/
 
 use common\config\components\functions;
 use common\models\User;
@@ -26,7 +36,7 @@ $this->title= Yii::t('common', 'User Profile View')
         <div class="col-md-4">
             <div class="row">
                 <div class="col-md-12">
-                    <img src="<?= functions::ImageReturn(Yii::$app->user->id) ?>" alt="..." class="img-circle center-block">
+                    <img src="<?= functions::ImageReturn(Yii::$app->user->id) ?>" alt="..." class="img-circle center-block" style="height: 90px;width: 90px">
                 </div>
             </div>
             <div class="row">

@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,11 +8,12 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 use common\assets\FileInputAsset;
 use common\models\Role;
 use common\models\User;
+use kartik\file\FileInput;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
 use yii\web\View;
@@ -86,11 +87,15 @@ $this->registerJs("
                 ]
         ]) ?>
 
+    <?= $form->field($model, 'image')->widget(FileInput::classname(), [
+        'options' =>
+            [
+                'accept' => 'image/*',
+                'multiple' => true,
+//            'name' => 'images[]',
+                'enctype'=>'multipart/form-data'
+            ],
+    ]); ?>
+</div>
 
-</div>
-<div class="row">
-    <div class="col-md-10">
-        <label class="control-label">تصویر پروفایل را بارگذاری کنید</label>
-        <input id="Image" name="Images[]" type="file" multiple class="file-loading"></div>
-</div>
 

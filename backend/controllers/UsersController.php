@@ -125,7 +125,7 @@ class UsersController extends Controller
             if ($InfoModel->HandleUserInfoPost($post)){
                 return $this->redirect(['view', 'id' => $model->id]);
             }
-
+            $this->savePicture($model);
         } else {
 
             return $this->render('create', [

@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,7 +8,7 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
@@ -19,7 +19,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\widgets\MaskedInput;
 
-$this->title = 'Signup';
+$this->title = 'ثبت نام';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-signup" style="direction: rtl">
@@ -65,7 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
             <div class="form-group">
-                <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                <?= Html::submitButton('ارسال کد ورود', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
             </div>
             <div class="col-md-4"></div>
 

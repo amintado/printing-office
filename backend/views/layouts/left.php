@@ -47,7 +47,7 @@ use common\models\User;
                 'items' => [
                     ['label' => Yii::t('backend', 'main-menu'), 'options' => ['class' => 'header']],
                     ['label' => Yii::t('backend', 'home'), 'icon' => 'home', 'url' => ['/site']],
-                    ['label' => Yii::t('backend', 'gii'), 'icon' => 'file-code-o', 'url' => ['/gii']],
+//                    ['label' => Yii::t('backend', 'gii'), 'icon' => 'file-code-o', 'url' => ['/gii']],
 
                 [
                     'label' => 'مدیریت کاربران',
@@ -55,7 +55,7 @@ use common\models\User;
                     'url' => '#',
                     'items' => [
                         ['label' => 'فهرست عمومی کاربران', 'icon' => 'map-marker', 'url' => ['/users/index'],],
-                        ['label' => 'نقش های کاربری', 'icon' => 'comment', 'url' => ['/role/index'],],
+//                        ['label' => 'نقش های کاربری', 'icon' => 'comment', 'url' => ['/role/index'],],
 //                        ['label'=>'مدل های کاربری','icon'=>'filter','url'=>['/user-mode']]
 
                     ],
@@ -65,21 +65,21 @@ use common\models\User;
                   'icon'=>'inbox',
                     'url'=>['/product']
                 ],
-                [
-                    'label' => 'سیستم',
-                    'icon' => 'no',
-                    'items' =>
-                        [
-                            ['label' => 'تنظیمات سیستم',
-                                'icon' => 'share',
-                                'url' => ['/settings'],
-                            ],
-                            ['label' => 'انواع پارامتر',
-                                'icon' => 'share',
-                                'url' => ['/types'],
-                            ],
-                        ]
-                ]
+//                [
+//                    'label' => 'سیستم',
+//                    'icon' => 'no',
+//                    'items' =>
+//                        [
+//                            ['label' => 'تنظیمات سیستم',
+//                                'icon' => 'share',
+//                                'url' => ['/settings'],
+//                            ],
+//                            ['label' => 'انواع پارامتر',
+//                                'icon' => 'share',
+//                                'url' => ['/types'],
+//                            ],
+//                        ]
+//                ]
 
 
             ],
