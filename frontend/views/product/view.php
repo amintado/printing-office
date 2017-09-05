@@ -11,7 +11,9 @@
  ******************************************************************************/
 
 use common\models\Product;
+use kartik\tabs\TabsX;
 use yii\helpers\Html;
+use yii\web\View;
 
 /*******************************************************************************
  * Copyright (c) 2017.
@@ -26,6 +28,7 @@ use yii\helpers\Html;
 
 /**
  * @var $model Product
+ * @var $this View
  */
 ?>
 <style>
@@ -91,6 +94,26 @@ use yii\helpers\Html;
         </div>
     </div>
     <div class="row">
-
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <?= TabsX::widget(
+                    [
+                        'id' => 'details',
+                        'position' => TabsX::POS_ABOVE,
+                        'items' =>
+                            [
+                                [
+                                    'label' => 'مشخصات ',
+                                    'content' => $this->render('_viewSpecification', ['model' => $model]),
+                                ],
+                                [
+                                    'label' => 'مشخصات فنی',
+                                    'content' => $this->render('_viewTSpcification', ['model' => $model]),
+                                ]
+                            ]
+                    ]
+                ) ?>
+            </div>
+        </div>
     </div>
 </div>
