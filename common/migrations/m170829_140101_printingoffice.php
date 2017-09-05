@@ -532,7 +532,7 @@ class m170829_140101_printingoffice extends \yii\db\Migration
         $user=User::find()->one();
         if (empty($user)){
             $user=new User();
-            $user->username='admin';
+            $user->username='00000000000';
             $user->auth_key='FnfcYcBGWkbyFx9IBjpAsJSPleOlxAQa';
             $user->id=1;
             $user->fullname= Yii::t('common', 'Admin User Fullname');
