@@ -21,7 +21,8 @@ use common\models\User;
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-right image">
-                <img src="<?= functions::ImageReturn(Yii::$app->user->getId()) ?>" class="img-circle" alt="User Image" style="height: 45px;width: 45px" />
+                <img src="<?= functions::ImageReturn(Yii::$app->user->getId()) ?>" class="img-circle" alt="User Image"
+                     style="height: 45px;width: 45px"/>
             </div>
             <div class="pull-right info">
                 <p><?= User::findOne(Yii::$app->user->getId())->fullname ?></p>
@@ -49,40 +50,45 @@ use common\models\User;
                     ['label' => Yii::t('backend', 'home'), 'icon' => 'home', 'url' => ['/site']],
 //                    ['label' => Yii::t('backend', 'gii'), 'icon' => 'file-code-o', 'url' => ['/gii']],
 
-                [
-                    'label' => 'مدیریت کاربران',
-                    'icon' => 'share',
-                    'url' => '#',
-                    'items' => [
-                        ['label' => 'فهرست عمومی کاربران', 'icon' => 'map-marker', 'url' => ['/users/index'],],
+                    [
+                        'label' => 'مدیریت کاربران',
+                        'icon' => 'share',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'فهرست عمومی کاربران', 'icon' => 'map-marker', 'url' => ['/users/index'],],
 //                        ['label' => 'نقش های کاربری', 'icon' => 'comment', 'url' => ['/role/index'],],
 //                        ['label'=>'مدل های کاربری','icon'=>'filter','url'=>['/user-mode']]
 
+                        ],
                     ],
-                ],
-                [
-                  'label'=>'مدیریت محصولات',
-                  'icon'=>'inbox',
-                    'url'=>['/product']
-                ],
-//                [
-//                    'label' => 'سیستم',
-//                    'icon' => 'no',
-//                    'items' =>
-//                        [
-//                            ['label' => 'تنظیمات سیستم',
-//                                'icon' => 'share',
-//                                'url' => ['/settings'],
-//                            ],
-//                            ['label' => 'انواع پارامتر',
-//                                'icon' => 'share',
-//                                'url' => ['/types'],
-//                            ],
-//                        ]
-//                ]
+                    [
+                        'label' => 'مدیریت محصولات',
+                        'icon' => 'inbox',
+                        'url' => ['/product']
+                    ],
+                    [
+                        'label' => 'پشتیبانی',
+                        'icon'=>'headphones',
+                        'url'=>['/ticket/admin']
+                    ],
+                    [
+                        'label' => 'سیستم',
+                        'icon' => 'no',
+                        'items' =>
+                            [
+                                ['label' => 'تنظیمات سیستم',
+                                    'icon' => 'share',
+                                    'url' => ['/settings'],
+                                ],
+                                ['label' => 'انواع پارامتر',
+                                    'icon' => 'share',
+                                    'url' => ['/types'],
+                                ],
+                            ]
+                    ]
 
 
-            ],
+                ],
             ]
         ) ?>
 

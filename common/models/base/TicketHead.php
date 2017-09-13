@@ -12,6 +12,7 @@
 
 namespace common\models\base;
 
+use common\models\traits\GlobalTrait;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;
@@ -31,6 +32,7 @@ use yii\behaviors\BlameableBehavior;
  * @property string $updated_by
  * @property string $deleted_by
  * @property string $restored_by
+ * @property string $hash_id
  *
  * @property \common\models\TicketBody[] $tabanTicketBodies
  * @property \common\models\TabanUsers $user
@@ -38,9 +40,26 @@ use yii\behaviors\BlameableBehavior;
 class TicketHead extends \yii\db\ActiveRecord
 {
     use \mootensai\relation\RelationTrait;
+    use GlobalTrait;
 
     private $_rt_softdelete;
     private $_rt_softrestore;
+
+    const TOPIC_ACCOUNTING=1;
+    const TOPIC_TECHNICAL=2;
+
+    const STATUS_WAITING=1;
+    const STATUS_ANSWERED=2;
+    const STATUS_USER_ANSWER=3;
+    const STATUS_CLOSE=4;
+
+    public static function departments(){
+        return
+            [
+                self::TOPIC_TECHNICAL=> Yii::t('common', 'Ticket Department-'.self::TOPIC_TECHNICAL),
+                self::TOPIC_ACCOUNTING=> Yii::t('common', 'Ticket Department-'.self::TOPIC_ACCOUNTING),
+            ];
+    }
 
     public function __construct(){
         parent::__construct();
@@ -76,8 +95,7 @@ class TicketHead extends \yii\db\ActiveRecord
             [['user_id', 'status', 'created_by', 'updated_by', 'deleted_by', 'restored_by'], 'integer'],
             [['date_update', 'created_at', 'updated_at'], 'safe'],
             [['department', 'topic'], 'string', 'max' => 255],
-            [['lock'], 'default', 'value' => '0'],
-            [['lock'], 'mootensai\components\OptimisticLockValidator']
+            ['hash_id','string','max'=>32]
         ];
     }
 
@@ -153,27 +171,6 @@ class TicketHead extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * The following code shows how to apply a default condition for all queries:
-     *
-     * ```php
-     * class Customer extends ActiveRecord
-     * {
-     *     public static function find()
-     *     {
-     *         return parent::find()->where(['deleted' => false]);
-     *     }
-     * }
-     *
-     * // Use andWhere()/orWhere() to apply the default condition
-     * // SELECT FROM customer WHERE `deleted`=:deleted AND age>30
-     * $customers = Customer::find()->andWhere('age>30')->all();
-     *
-     * // Use where() to ignore the default condition
-     * // SELECT FROM customer WHERE age>30
-     * $customers = Customer::find()->where('age>30')->all();
-     * ```
-     */
 
 
 }

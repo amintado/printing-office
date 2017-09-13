@@ -23,6 +23,23 @@ return [
     'id' => 'app-frontend',
 
     'basePath' => dirname(__DIR__),
+    'modules' => [
+        'gridview' => [
+            'class' => '\kartik\grid\Module'
+        ],
+        'ticket' => [
+            'class' => amintado\ticket\Module::className(),
+            'qq' =>
+                [
+                    'support' => 'بخش پشتیبانی',
+                    'Technical' => 'بخش فنی'
+                ]
+        ],
+        'slider'=>[
+            'class'=> amintado\slider\Module::className(),
+        ]
+
+    ],
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
@@ -55,15 +72,15 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => true,
             'rules' =>
-            [
-                'product/<id:\d+>'=>'product/view'
-            ]
+                [
+                    'product/<id:\d+>' => 'product/view'
+                ]
         ],
         'urlManagerBackend' => [
             'class' => 'yii\web\urlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => true,
-            'baseUrl' =>  '/profile'
+            'baseUrl' => '/profile'
 
         ],
 

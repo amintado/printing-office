@@ -12,7 +12,7 @@
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yiisoft/yii2"
     },
-    "minimum-stability": "stable",
+
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "~2.0.6",
@@ -41,6 +41,9 @@
 
     },
     "require-dev": {
+        "amintado/yii2-module-slider":"dev-master",
+        "amintado/yii2-amintado-global-functions":"@dev",
+        "amintado/yii2-ticket":"@dev",
         "yiisoft/yii2-debug": "~2.0.0",
         "yiisoft/yii2-gii": "~2.0.0",
         "kartik-v/yii2-grid": "@dev",

@@ -11,13 +11,8 @@
  ******************************************************************************/
 
 use common\models\base\Product;
+use common\models\base\TicketHead;
 
-/**
- * Created by PhpStorm.
- * User: amin__000
- * Date: 8/25/2017
- * Time: 5:07 PM
- */
 return [
     //---------------- Global -------------------
 
@@ -35,11 +30,8 @@ return [
     'Profile' => 'ناحیه کاربری',
     'Logout' => 'خروج',
     'Sign Out' => 'خروج از حساب',
-    //---------------- Alerts -------------------
 
-    'DELETE ALERT TITLE'=>'شما درخواست حذف داشتید',
-    'Not Dleted'=>'پاک نشد',
-    'Hard Delete Alert Message'=>'در صورت حذف، این مورد قابل بازگردانی نیست، آیا از حذف این مورد اطمینان کامل دارید؟',
+
 
     //---------------- User Profile Translation Fields -------------------
     'User Active' => 'فعال',
@@ -101,6 +93,9 @@ return [
     'National Code is not valid' => 'کد ملی معتبر نیست',
     'email' => 'ایمیل',
     'Address Hint' => '*این آدرس برای ارسال سفارش شما استفاده می شود.',
+    'DELETE ALERT TITLE'=>'شما درخواست حذف داشتید',
+    'Not Dleted'=>'پاک نشد',
+    'Hard Delete Alert Message'=>'در صورت حذف، این مورد قابل بازگردانی نیست، آیا از حذف این مورد اطمینان کامل دارید؟',
 
 
     'Account Details' => 'اطلاعات حساب',
@@ -129,6 +124,19 @@ return [
     'Product Status -' . Product::STATUS_INACTIVE => 'پیش نویس',
     'Product Details'=>'اطلاعات محصول',
 
+    //---------------- Ticket -------------------
 
+    'Ticket Department-'.TicketHead::TOPIC_ACCOUNTING=>'بخش مالی',
+    'Ticket Department-'.TicketHead::TOPIC_TECHNICAL=>'بخش فنی',
+
+
+    'Ticket Status-'.TicketHead::STATUS_ANSWERED=>'پاسخ داده شد',
+    'Ticket Status-'.TicketHead::STATUS_CLOSE=>'بسته شد',
+    'Ticket Status-'.TicketHead::STATUS_USER_ANSWER=>'پاسخ مشتری',
+    'Ticket Status-'.TicketHead::STATUS_WAITING=>'در حال انتظار',
+
+    //---------------- Menus -------------------
+
+    'Profile Side Tickets'=>'پشتیبانی',
 
 ];

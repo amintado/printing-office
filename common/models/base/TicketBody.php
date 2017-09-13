@@ -77,8 +77,7 @@ class TicketBody extends \yii\db\ActiveRecord
             [['text'], 'string'],
             [['date', 'created_at', 'updated_at'], 'safe'],
             [['name_user'], 'string', 'max' => 255],
-            [['lock'], 'default', 'value' => '0'],
-            [['lock'], 'mootensai\components\OptimisticLockValidator']
+
         ];
     }
 

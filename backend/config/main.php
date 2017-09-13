@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,7 +8,7 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
@@ -26,7 +26,15 @@ return [
     'modules' => [
         'gridview' => [
             'class' => '\kartik\grid\Module'
-        ]
+        ],
+        'ticket' => [
+            'class' => amintado\ticket\Module::className(),
+            'qq' =>
+                [
+                    'support' => 'بخش پشتیبانی',
+                    'Technical' => 'بخش فنی'
+                ]
+        ],
     ],
     'components' => [
         'view' => [

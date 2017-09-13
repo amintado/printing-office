@@ -2,6 +2,10 @@
   <settings default="amintado">
     <module2copyright>
       <element module="Project Files" copyright="amintado" />
+      <element module="Changed Files" copyright="amintado" />
+      <element module="Non-Project Files" copyright="amintado" />
+      <element module="All" copyright="amintado" />
+      <element module="Tests" copyright="amintado" />
     </module2copyright>
     <LanguageOptions name="PHP">
       <option name="fileTypeOverride" value="3" />

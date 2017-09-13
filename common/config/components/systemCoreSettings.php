@@ -110,4 +110,6 @@ class systemCoreSettings extends Component
           'backend'=>' <b>نسخه</b> 1',
           'frontend'=>' <b>نسخه</b> 1'
         ];
+
+
 }

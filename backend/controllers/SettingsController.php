@@ -1,7 +1,18 @@
 <?php
+/*******************************************************************************
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ ******************************************************************************/
 
 namespace backend\controllers;
 
+use common\config\components\systemCoreSettings;
 use common\models\Settings;
 use common\models\SettingsSearch;
 use common\models\User;
@@ -24,18 +35,24 @@ class SettingsController extends Controller {
         ];
     }
     public function actionIndex() {
-        if (!Yii::$app->user->can('manageSettings')) {
-            throw new ForbiddenHttpException('You are not allowed to edit this article.');
-        }
-        
-        $get = Yii::$app->request->queryParams;
-        $searchModel = new SettingsSearch();
-        $dataProvider = $searchModel->search($get);
-        $dataProvider->pagination->pageSize = (isset($get['per-page']) && is_numeric($get['per-page']) ? $get['per-page'] : 10);
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+//        if (!Yii::$app->user->can('manageSettings')) {
+//            throw new ForbiddenHttpException('You are not allowed to edit this article.');
+//        }
+        $companyName=Yii::$app->systemCore->companyName;
+        $downloadURL=Yii::$app->systemCore->downloadURL;
+        $AdminEmail=Yii::$app->systemCore->AdminEmail;
+        $version=Yii::$app->systemCore->versions;
+        $PoweredByText=Yii::$app->systemCore->poweredByTexts;
+        $Product=Yii::$app->systemCore->product;
+        $ElasticEmail=Yii::$app->systemCore->elasticMail;
+        $DefaultPassword=Yii::$app->systemCore->DefaultPassword;
+        $LoginDuration=Yii::$app->systemCore->LoginDuration;
+
+
+        return $this->render('index');
+
+
+
     }
     public function actionView($id) {
         if (!Yii::$app->user->can('manageSettings')) {

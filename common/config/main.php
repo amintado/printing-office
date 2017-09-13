@@ -1,4 +1,15 @@
 <?php
+/*******************************************************************************
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ ******************************************************************************/
+
 return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'language'   => 'fa-IR',
@@ -11,7 +22,8 @@ return [
             'class'=>'common\config\components\mcrypt'
         ],
         'functions'=>[
-            'class'=>'common\config\components\functions'
+            'class'=>'amintado\base\AmintadoFunctions',
+            'telegram_bot' => '@shahrmap_debug'
         ],
         'stat'=>[
             'class'=> 'common\config\components\stat',

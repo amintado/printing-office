@@ -529,6 +529,7 @@ class m170829_140101_printingoffice extends \yii\db\Migration
         ], $tableOptions);
 
         $this->addColumn('{{%product_gallery}}','hash_id','varchar(32)');
+        $this->addColumn('{{%ticket_head}}','hash_id','varchar(32)');
 
         $user=User::find()->one();
         if (empty($user)){

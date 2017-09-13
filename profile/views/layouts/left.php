@@ -21,7 +21,8 @@ use common\models\User;
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-right image">
-                <img src="<?= functions::ImageReturn(Yii::$app->user->getId()) ?>" class="img-circle" alt="User Image" style="height: 45px;width: 45px"/>
+                <img src="<?= functions::ImageReturn(Yii::$app->user->getId()) ?>" class="img-circle" alt="User Image"
+                     style="height: 45px;width: 45px"/>
             </div>
             <div class="pull-right info">
                 <p><?= User::findOne(Yii::$app->user->getId())->fullname ?></p>
@@ -48,16 +49,20 @@ use common\models\User;
                     ['label' => Yii::t('backend', 'main-menu'), 'options' => ['class' => 'header']],
                     ['label' => Yii::t('backend', 'home'), 'icon' => 'home', 'url' => ['/site']],
 
-                [
-                    'label' => Yii::t('common', 'User Profile View'),
-                    'icon' => 'share',
-                    'url' => ['/user/view'],
+                    [
+                        'label' => Yii::t('common', 'User Profile View'),
+                        'icon' => 'share',
+                        'url' => ['/user/view'],
+
+                    ],
+                    [
+                        'label' => Yii::t('common', 'Profile Side Tickets'),
+                        'icon' =>'headphones',
+                        'url'=>['/ticket/ticket']
+                    ]
+
 
                 ],
-
-
-
-            ],
             ]
         ) ?>
 

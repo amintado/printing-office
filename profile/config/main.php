@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,7 +8,7 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
@@ -24,7 +24,16 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'profile\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+        'ticket' => [
+            'class' => amintado\ticket\Module::className(),
+            'qq' =>
+                [
+                    'support' => 'بخش پشتیبانی',
+                    'Technical' => 'بخش فنی'
+                ]
+        ],
+    ],
     'components' => [
         'view' => [
             'title' => Yii::t('profile','app-name'),
