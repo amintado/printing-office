@@ -1279,12 +1279,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
-                "reference": "5911e2cbf1f9e854ebe5ffb4102fb16af859a0bb"
+                "reference": "a34efc2739157969c74c320715871ee2a2ab49c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/5911e2cbf1f9e854ebe5ffb4102fb16af859a0bb",
-                "reference": "5911e2cbf1f9e854ebe5ffb4102fb16af859a0bb",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/a34efc2739157969c74c320715871ee2a2ab49c8",
+                "reference": "a34efc2739157969c74c320715871ee2a2ab49c8",
                 "shasum": ""
             },
             "type": "library",
@@ -1324,7 +1324,7 @@
                 "progress",
                 "upload"
             ],
-            "time": "2017-09-13 14:26:45"
+            "time": "2017-09-21T16:53:00+00:00"
         },
         {
             "name": "kartik-v/bootstrap-popover-x",
@@ -1839,7 +1839,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-09-13 12:37:07"
+            "time": "2017-09-13T12:37:07+00:00"
         },
         {
             "name": "kartik-v/yii2-helpers",
@@ -2141,7 +2141,7 @@
                 "tabs",
                 "tabs-x"
             ],
-            "time": "2017-05-04 12:30:21"
+            "time": "2017-05-04T12:30:21+00:00"
         },
         {
             "name": "kartik-v/yii2-tree-manager",
@@ -2198,7 +2198,7 @@
                 "tree",
                 "treeview"
             ],
-            "time": "2017-08-24 09:48:01"
+            "time": "2017-08-24T09:48:01+00:00"
         },
         {
             "name": "kartik-v/yii2-widget-activeform",
@@ -2303,22 +2303,27 @@
         },
         {
             "name": "kartik-v/yii2-widget-alert",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-alert.git",
-                "reference": "5b312eeaf429c2affe6a96217d79f0c761159643"
+                "reference": "7348b0d047695a3e552888c481ce250cbc1f9d0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-alert/zipball/5b312eeaf429c2affe6a96217d79f0c761159643",
-                "reference": "5b312eeaf429c2affe6a96217d79f0c761159643",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-alert/zipball/7348b0d047695a3e552888c481ce250cbc1f9d0d",
+                "reference": "7348b0d047695a3e552888c481ce250cbc1f9d0d",
                 "shasum": ""
             },
             "require": {
                 "kartik-v/yii2-krajee-base": "*"
             },
             "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "kartik\\alert\\": ""
@@ -2349,7 +2354,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2014-11-19T06:44:12+00:00"
+            "time": "2017-03-10T17:08:52+00:00"
         },
         {
             "name": "kartik-v/yii2-widget-colorinput",
@@ -2817,7 +2822,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-09-04 15:30:52"
+            "time": "2017-09-04T15:30:52+00:00"
         },
         {
             "name": "kartik-v/yii2-widget-sidenav",
@@ -3408,7 +3413,7 @@
                 "yii",
                 "yii2"
             ],
-            "time": "2017-09-14 07:34:23"
+            "time": "2017-09-14T07:34:23+00:00"
         },
         {
             "name": "mootensai/yii2-jsblock",
@@ -4308,12 +4313,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/amintado/yii2-amintado-global-functions.git",
-                "reference": "afc8f6f6ecc00e7565314755a3e5cad2c54b090e"
+                "reference": "9a99c23d43ca7e98448beebf5d6fda0eb37c7626"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amintado/yii2-amintado-global-functions/zipball/afc8f6f6ecc00e7565314755a3e5cad2c54b090e",
-                "reference": "afc8f6f6ecc00e7565314755a3e5cad2c54b090e",
+                "url": "https://api.github.com/repos/amintado/yii2-amintado-global-functions/zipball/9a99c23d43ca7e98448beebf5d6fda0eb37c7626",
+                "reference": "9a99c23d43ca7e98448beebf5d6fda0eb37c7626",
                 "shasum": ""
             },
             "require": {
@@ -4346,7 +4351,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-09-10 12:08:02"
+            "time": "2017-09-15T11:14:16+00:00"
         },
         {
             "name": "amintado/yii2-aprico-asset",
@@ -4390,7 +4395,7 @@
                 "imagine",
                 "yii2"
             ],
-            "time": "2017-06-08 14:46:08"
+            "time": "2017-06-08T14:46:08+00:00"
         },
         {
             "name": "amintado/yii2-module-slider",
@@ -4433,7 +4438,7 @@
                 "yii2",
                 "yii2-slider"
             ],
-            "time": "2017-09-11 18:50:34"
+            "time": "2017-09-11T18:50:34+00:00"
         },
         {
             "name": "amintado/yii2-module-wordpress",
@@ -4441,12 +4446,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/amintado/yii2-module-wordpress.git",
-                "reference": "3f742e7d8642bbf7cf32d6b54f7437da6cdde463"
+                "reference": "97404aca93f0c089dcc1e45d8484b537cbc8126e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amintado/yii2-module-wordpress/zipball/3f742e7d8642bbf7cf32d6b54f7437da6cdde463",
-                "reference": "3f742e7d8642bbf7cf32d6b54f7437da6cdde463",
+                "url": "https://api.github.com/repos/amintado/yii2-module-wordpress/zipball/97404aca93f0c089dcc1e45d8484b537cbc8126e",
+                "reference": "97404aca93f0c089dcc1e45d8484b537cbc8126e",
                 "shasum": ""
             },
             "require": {
@@ -4476,7 +4481,7 @@
                 "yii2",
                 "yii2-wordpress"
             ],
-            "time": "2017-09-15T15:31:49+00:00"
+            "time": "2017-09-22T20:50:25+00:00"
         },
         {
             "name": "amintado/yii2-ticket",
@@ -4484,12 +4489,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/amintado/yii2-ticket.git",
-                "reference": "9e7abf18691a6f044edf0db00f5e7c08b1e06511"
+                "reference": "9ca692f2dcafeaa0b83d13fd8b9007a87d19a6c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amintado/yii2-ticket/zipball/9e7abf18691a6f044edf0db00f5e7c08b1e06511",
-                "reference": "9e7abf18691a6f044edf0db00f5e7c08b1e06511",
+                "url": "https://api.github.com/repos/amintado/yii2-ticket/zipball/9ca692f2dcafeaa0b83d13fd8b9007a87d19a6c9",
+                "reference": "9ca692f2dcafeaa0b83d13fd8b9007a87d19a6c9",
                 "shasum": ""
             },
             "require": {
@@ -4524,7 +4529,7 @@
                 "yii2",
                 "yii2-ticket"
             ],
-            "time": "2017-09-10T08:30:23+00:00"
+            "time": "2017-09-15T16:07:38+00:00"
         },
         {
             "name": "bazilio/yii2-stubs-generator",
