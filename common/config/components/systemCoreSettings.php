@@ -110,6 +110,7 @@ class systemCoreSettings extends Component
           'backend'=>' <b>نسخه</b> 1',
           'frontend'=>' <b>نسخه</b> 1'
         ];
-
+    public $wordpressUsername='wpadmin';
+    public $BackendAddress= 'admin123admin';
 
 }

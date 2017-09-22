@@ -10,14 +10,6 @@
  * All rights reserved.
  ******************************************************************************/
 
-use amintado\slider\widgets\SliderWidget;
-
-/* @var $this yii\web\View */
-
-?>
-
-<?php wp_head(); ?>
-<?php SliderWidget::widget() ?>
-<?php layerslider(1) ?>
-<img src="<?= Yii::$app->systemCore->downloadURL.'/web.jpg' ?>" class="img-responsive" style="height: 100vh;width: 100vw" alt="Image">
-
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+defined('YII_ENV') or define('YII_ENV', 'dev');
+defined('WP_USE_THEMES') or define('WP_USE_THEMES', true);

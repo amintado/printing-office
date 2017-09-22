@@ -35,9 +35,24 @@ BootstrapRtlAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+<body style="margin-top: -73px">
+<style>
+    .navbar-inverse {
+        background-color: hsla(0, 0%, 13.3%, 0.2);
+        border-color: hsla(0, 0%, 100%, 0);
+    }
+    .navbar-inverse .navbar-nav > li > a {
+        color: hsl(0, 0%, 100%);
+    }
+    .navbar-inverse .navbar-brand {
+        color: hsl(0, 0%, 100%);
+    }
+    .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+        color: hsl(0, 0%, 100%);
+        background-color: hsla(0, 0%, 3.1%, 0.2);
+    }
+</style>
 <?php $this->beginBody() ?>
-
 <div class="wrap">
     <?php
     NavBar::begin([

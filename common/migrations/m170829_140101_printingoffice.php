@@ -542,14 +542,20 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             $user->email=Yii::$app->systemCore->AdminEmail;
             $user->status=User::STATUS_ACTIVE;
             $user->hash_id=hash('adler32',1);
+
+            $user->validate();
             $user->save();
             $info=new UserInfo();
             $info->name='مدیر';
             $info->family='سایت';
             $info->uid=1;
+
             $info->save();
 
         }
+
+
+
     }
 
     public function safeDown()

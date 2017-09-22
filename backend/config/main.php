@@ -35,6 +35,9 @@ return [
                     'Technical' => 'بخش فنی'
                 ]
         ],
+        'slider'=>[
+            'class'=> amintado\slider\Module::className(),
+        ]
     ],
     'components' => [
         'view' => [

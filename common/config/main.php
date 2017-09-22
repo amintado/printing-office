@@ -44,7 +44,12 @@ return [
                         'backend' => 'common.php',
                     ],
                 ],
-
+//                'atslider*'=>[
+//                    'class' => 'yii\i18n\PhpMessageSource',
+//                    'basePath' => "@vendor/amintado/yii2-module-slider/messages",
+//                    'forceTranslation' => true,
+//                    'fileMap' => 'atslider.php'
+//                ],
                 'ticket*' => [
                     'class'    => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@common/config/translations',

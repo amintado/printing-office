@@ -66,8 +66,10 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function tableName()
     {
+
         return '{{%users}}';
     }
+
 
     /**
      * @inheritdoc
@@ -90,6 +92,7 @@ class User extends ActiveRecord implements IdentityInterface
             ['username', 'string', 'min' => 11, 'max' => 17],
             ['username', 'required'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('common', 'This mobile has already been taken.')],
+
         ];
     }
 

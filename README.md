@@ -1,14 +1,20 @@
 ## Welcome to printing office project page
 
+
 this project is a printing office site project.
 
+
 ##install
+
+
 first you must install this repository to your system:
 ````
 $ composer require "amintado/printing-office"
 ````
 
 ##phases
+
+
 The project is set in 10 phases
 
 1. - [X] create database model and migration files

@@ -21,7 +21,6 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "mootensai/yii2-enhanced-gii": "dev-master",
         "kartik-v/yii2-tree-manager": "dev-master",
-
         "mohammad-mahdy/yii2-jdate": "*",
         "moonlandsoft/yii2-phpexcel": "*",
         "codemix/yii2-excelexport": "*",
@@ -42,6 +41,7 @@
     },
     "require-dev": {
         "amintado/yii2-module-slider":"dev-master",
+        "amintado/yii2-module-wordpress":"dev-master",
         "amintado/yii2-amintado-global-functions":"@dev",
         "amintado/yii2-ticket":"@dev",
         "yiisoft/yii2-debug": "~2.0.0",

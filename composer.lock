@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "09a2e94d653e0af9e8279b11706a27c6",
+    "content-hash": "b6b0ea3f4882d7d9d0b1c0e920137bfd",
     "packages": [
         {
             "name": "2amigos/yii2-ckeditor-widget",
@@ -854,16 +854,16 @@
         },
         {
             "name": "ckeditor/ckeditor",
-            "version": "4.7.2",
+            "version": "4.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ckeditor/ckeditor-releases.git",
-                "reference": "e1db4f159d7743c076e464ce90dc8b421ebc8ef0"
+                "reference": "97b8f412f6b36985c734daf0717e81009a885dba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ckeditor/ckeditor-releases/zipball/e1db4f159d7743c076e464ce90dc8b421ebc8ef0",
-                "reference": "e1db4f159d7743c076e464ce90dc8b421ebc8ef0",
+                "url": "https://api.github.com/repos/ckeditor/ckeditor-releases/zipball/97b8f412f6b36985c734daf0717e81009a885dba",
+                "reference": "97b8f412f6b36985c734daf0717e81009a885dba",
                 "shasum": ""
             },
             "type": "library",
@@ -891,7 +891,7 @@
                 "text",
                 "wysiwyg"
             ],
-            "time": "2017-08-17T17:01:28+00:00"
+            "time": "2017-09-13T13:09:47+00:00"
         },
         {
             "name": "codemix/yii2-excelexport",
@@ -1279,12 +1279,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
-                "reference": "bf3706d5369c6895f68572cba4bfac283bad0af2"
+                "reference": "5911e2cbf1f9e854ebe5ffb4102fb16af859a0bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/bf3706d5369c6895f68572cba4bfac283bad0af2",
-                "reference": "bf3706d5369c6895f68572cba4bfac283bad0af2",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/5911e2cbf1f9e854ebe5ffb4102fb16af859a0bb",
+                "reference": "5911e2cbf1f9e854ebe5ffb4102fb16af859a0bb",
                 "shasum": ""
             },
             "type": "library",
@@ -1324,7 +1324,7 @@
                 "progress",
                 "upload"
             ],
-            "time": "2017-09-10 12:57:08"
+            "time": "2017-09-13 14:26:45"
         },
         {
             "name": "kartik-v/bootstrap-popover-x",
@@ -1617,20 +1617,20 @@
         },
         {
             "name": "kartik-v/yii2-dynagrid",
-            "version": "v1.4.5",
+            "version": "v1.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-dynagrid.git",
-                "reference": "13e013ffcde9ef7f99b7d2ab0ee2b91e437abbea"
+                "reference": "d1a65dcc4eaec89188de28aceeeda71c9e41e1a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-dynagrid/zipball/13e013ffcde9ef7f99b7d2ab0ee2b91e437abbea",
-                "reference": "13e013ffcde9ef7f99b7d2ab0ee2b91e437abbea",
+                "url": "https://api.github.com/repos/kartik-v/yii2-dynagrid/zipball/d1a65dcc4eaec89188de28aceeeda71c9e41e1a6",
+                "reference": "d1a65dcc4eaec89188de28aceeeda71c9e41e1a6",
                 "shasum": ""
             },
             "require": {
-                "kartik-v/yii2-grid": "~3.0",
+                "kartik-v/yii2-grid": "~3.1",
                 "kartik-v/yii2-sortable": "~1.2",
                 "kartik-v/yii2-widget-activeform": "~1.4",
                 "kartik-v/yii2-widget-select2": "~2.0"
@@ -1673,7 +1673,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-04-06T18:54:56+00:00"
+            "time": "2017-09-15T04:57:24+00:00"
         },
         {
             "name": "kartik-v/yii2-editable",
@@ -1794,12 +1794,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-grid.git",
-                "reference": "dc04339fb3fd66af283ca63f5dcb6da085a6a333"
+                "reference": "62728a88816af2dc93640f2b8e10e10871cf4ee2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/dc04339fb3fd66af283ca63f5dcb6da085a6a333",
-                "reference": "dc04339fb3fd66af283ca63f5dcb6da085a6a333",
+                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/62728a88816af2dc93640f2b8e10e10871cf4ee2",
+                "reference": "62728a88816af2dc93640f2b8e10e10871cf4ee2",
                 "shasum": ""
             },
             "require": {
@@ -1839,7 +1839,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-09-01 12:21:36"
+            "time": "2017-09-13 12:37:07"
         },
         {
             "name": "kartik-v/yii2-helpers",
@@ -3357,12 +3357,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mootensai/yii2-enhanced-gii.git",
-                "reference": "057eb0f486babd90638c34ff0b8ff8c198c8f096"
+                "reference": "bb221d2e0212b9e3e79a4849fc9d54a32fd2da3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mootensai/yii2-enhanced-gii/zipball/057eb0f486babd90638c34ff0b8ff8c198c8f096",
-                "reference": "057eb0f486babd90638c34ff0b8ff8c198c8f096",
+                "url": "https://api.github.com/repos/mootensai/yii2-enhanced-gii/zipball/bb221d2e0212b9e3e79a4849fc9d54a32fd2da3f",
+                "reference": "bb221d2e0212b9e3e79a4849fc9d54a32fd2da3f",
                 "shasum": ""
             },
             "require": {
@@ -3408,7 +3408,7 @@
                 "yii",
                 "yii2"
             ],
-            "time": "2017-08-23 05:57:04"
+            "time": "2017-09-14 07:34:23"
         },
         {
             "name": "mootensai/yii2-jsblock",
@@ -4346,7 +4346,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-09-10T12:08:02+00:00"
+            "time": "2017-09-10 12:08:02"
         },
         {
             "name": "amintado/yii2-aprico-asset",
@@ -4433,7 +4433,50 @@
                 "yii2",
                 "yii2-slider"
             ],
-            "time": "2017-09-11T18:50:34+00:00"
+            "time": "2017-09-11 18:50:34"
+        },
+        {
+            "name": "amintado/yii2-module-wordpress",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/amintado/yii2-module-wordpress.git",
+                "reference": "3f742e7d8642bbf7cf32d6b54f7437da6cdde463"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/amintado/yii2-module-wordpress/zipball/3f742e7d8642bbf7cf32d6b54f7437da6cdde463",
+                "reference": "3f742e7d8642bbf7cf32d6b54f7437da6cdde463",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "amintado\\wordpress\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL"
+            ],
+            "authors": [
+                {
+                    "name": "amintado",
+                    "email": "amintado@gmail.com"
+                }
+            ],
+            "description": "wordpress CMS for Yii2 Framework ",
+            "homepage": "https://github.com/amintado/yii2-module-wordpress",
+            "keywords": [
+                "Yii2 wordpress module",
+                "amintado",
+                "yii2",
+                "yii2-wordpress"
+            ],
+            "time": "2017-09-15T15:31:49+00:00"
         },
         {
             "name": "amintado/yii2-ticket",
@@ -4441,12 +4484,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/amintado/yii2-ticket.git",
-                "reference": "96e545426d9678233d7587bff0f76a256778fb68"
+                "reference": "9e7abf18691a6f044edf0db00f5e7c08b1e06511"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amintado/yii2-ticket/zipball/96e545426d9678233d7587bff0f76a256778fb68",
-                "reference": "96e545426d9678233d7587bff0f76a256778fb68",
+                "url": "https://api.github.com/repos/amintado/yii2-ticket/zipball/9e7abf18691a6f044edf0db00f5e7c08b1e06511",
+                "reference": "9e7abf18691a6f044edf0db00f5e7c08b1e06511",
                 "shasum": ""
             },
             "require": {
@@ -4481,7 +4524,7 @@
                 "yii2",
                 "yii2-ticket"
             ],
-            "time": "2017-09-10 07:09:46"
+            "time": "2017-09-10T08:30:23+00:00"
         },
         {
             "name": "bazilio/yii2-stubs-generator",
@@ -7037,6 +7080,7 @@
         "kartik-v/yii2-tree-manager": 20,
         "kartik-v/bootstrap-fileinput": 20,
         "amintado/yii2-module-slider": 20,
+        "amintado/yii2-module-wordpress": 20,
         "amintado/yii2-amintado-global-functions": 20,
         "amintado/yii2-ticket": 20,
         "kartik-v/yii2-grid": 20,
