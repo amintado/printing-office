@@ -12,6 +12,7 @@
 
 use common\models\User;
 use common\models\UserInfo;
+use frontend\models\SignupForm;
 use yii\db\Schema;
 
 class m170829_140101_printingoffice extends \yii\db\Migration
@@ -534,11 +535,11 @@ class m170829_140101_printingoffice extends \yii\db\Migration
         $user=User::find()->one();
         if (empty($user)){
             $user=new User();
-            $user->username='00000000000';
-            $user->auth_key='FnfcYcBGWkbyFx9IBjpAsJSPleOlxAQa';
             $user->id=1;
+            $user->username='00000000000';
+            $user->setPassword('22250603652000');
+            $user->generateAuthKey();
             $user->fullname= Yii::t('common', 'Admin User Fullname');
-            $user->password_hash='$2y$13$iHOwA/3FOQWHLA.Ck6lGO.Nfd5vTo9iNNIIFl6RQ04hNT3n8EgJ9m';
             $user->email=Yii::$app->systemCore->AdminEmail;
             $user->status=User::STATUS_ACTIVE;
             $user->hash_id=hash('adler32',1);

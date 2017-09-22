@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,7 +8,7 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 namespace frontend\models;
 
@@ -112,7 +112,6 @@ class SignupForm extends Model
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();
-
         return $user->save() ? $user : null;
     }
 
