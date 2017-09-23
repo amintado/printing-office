@@ -18,5 +18,4 @@ use amintado\slider\widgets\SliderWidget;
 
 <?php wp_head(); ?>
 <?php layerslider(1) ?>
-<img src="<?= Yii::$app->systemCore->downloadURL.'/web.jpg' ?>" class="img-responsive" style="height: 100vh;width: 100vw" alt="Image">
 
