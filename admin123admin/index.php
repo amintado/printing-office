@@ -24,5 +24,7 @@ $config = yii\helpers\ArrayHelper::merge(
     require(__DIR__ . '/../backend/config/main.php'),
     require(__DIR__ . '/../backend/config/main-local.php')
 );
-require(__DIR__ . '/../cms/wp-load.php');
+if (strpos($_SERVER["REQUEST_URI"],'slide')){
+    require(__DIR__ . '/../cms/wp-load.php');
+}
 (new yii\web\Application($config))->run();
