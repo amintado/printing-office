@@ -695,7 +695,7 @@ cite {
 
 .zigzag {
 	padding-top: 20px;
-	background: url(http://tabanchap.ir/assets/img/zigzag.png) top left repeat-x;
+	background: url(../img/zigzag.png) top left repeat-x;
 	top: -14px;
 	position: relative;
 	text-align: right;
@@ -760,7 +760,7 @@ code .dashicons {
 	width: 100%;
 	height: 100%;
 	border-radius: 3px;
-	background: url(http://tabanchap.ir/assets/img/play.png) center center no-repeat;
+	background: url(../img/play.png) center center no-repeat;
 	background-color: rgba(202,75,46,.75);
     background-size: 36%;
 	transition: background-color .5s;
