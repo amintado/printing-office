@@ -695,9 +695,10 @@ cite {
 
 .zigzag {
 	padding-top: 20px;
-	background: url(../img/zigzag.png) top left repeat-x;
+	background: url(http://tabanchap.ir/assets/img/zigzag.png) top left repeat-x;
 	top: -14px;
 	position: relative;
+	text-align: right;
 }
 
 #content .syntaxhighlighter  {
