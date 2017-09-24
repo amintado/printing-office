@@ -42,4 +42,9 @@ class SlideController extends Controller
 //        return $this->render('index');
 
     }
+
+    public function actionHelp(){
+        $this->layout='main-help';
+        return $this->render('help');
+    }
 }

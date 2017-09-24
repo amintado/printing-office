@@ -47,7 +47,20 @@ use common\models\User;
         $items[] = [
             'label' => 'مدیریت اسلایدر ها',
             'icon' => 'share',
-            'url' => ['/slide']
+            'items' =>
+                [
+                    [
+                        'label' => 'پنل مدیریت اسلاید',
+                        'icon' => 'share',
+                        'url' => ['/slide']
+                    ],
+                    [
+                        'label' => 'راهنمای استفاده از ادمین',
+                        'icon' => 'share',
+                        'url' => ['/slide/help']
+                    ]
+
+                ]
         ];
         //                    ['label' => Yii::t('backend', 'gii'), 'icon' => 'file-code-o', 'url' => ['/gii']],
         $items[] = [
@@ -87,8 +100,6 @@ use common\models\User;
                     ],
                 ]
         ];
-
-
 
 
         ?>
