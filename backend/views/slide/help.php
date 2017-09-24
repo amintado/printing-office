@@ -19,7 +19,7 @@ use yii\web\View;
  */
 $asset= BackendHelpAsset::register($this);
 $asset_dir=$asset->baseUrl.'/assets';
-
+$this->title='راهنمای اسلایدساز';
 ?>
 
 <style>
