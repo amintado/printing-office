@@ -29,11 +29,11 @@ return [
         ],
         'ticket' => [
             'class' => amintado\ticket\Module::className(),
-            'qq' =>
-                [
-                    'support' => 'بخش پشتیبانی',
-                    'Technical' => 'بخش فنی'
-                ]
+//            'qq' =>
+//                [
+//                    'support' => 'بخش پشتیبانی',
+//                    'Technical' => 'بخش فنی'
+//                ]
         ],
         'slider'=>[
             'class'=> amintado\slider\Module::className(),

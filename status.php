@@ -10,6 +10,6 @@
  * All rights reserved.
  ******************************************************************************/
 
-defined('YII_DEBUG') or define('YII_DEBUG', false);
+defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
 defined('WP_USE_THEMES') or define('WP_USE_THEMES', true);

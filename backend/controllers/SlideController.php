@@ -37,9 +37,9 @@ class SlideController extends Controller
             do_action( 'wp_login', $user->user_login );
         }
 
-//        admin_url('admin.php?page=layerslider');
+        admin_url('admin.php?page=layerslider');
         $this->redirect('/cms/wp-admin/admin.php?page=layerslider');
-//        return $this->render('index');
+        //return $this->render('index');
 
     }
 

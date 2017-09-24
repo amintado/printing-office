@@ -58,7 +58,7 @@ use common\models\User;
                     [
                         'label' => Yii::t('common', 'Profile Side Tickets'),
                         'icon' =>'headphones',
-                        'url'=>['/ticket/ticket']
+                        'url'=>['/ticket']
                     ]
 
 

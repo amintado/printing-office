@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,7 +8,7 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 namespace frontend\controllers;
 
@@ -89,6 +89,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        require(__DIR__.'/../../cms/wp-load.php');
         return $this->render('index');
     }
 
