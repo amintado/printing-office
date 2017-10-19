@@ -38,7 +38,7 @@
         "2amigos/yii2-ckeditor-widget": "^2.1",
         "pheme/yii2-settings": "*",
         "amintado/yii2-module-inquery": "@dev",
-        "amintado/yii2-module-pay": "@dev"
+        "amintado/yii2-module-pay": "@dev-master"
 
 
     },
