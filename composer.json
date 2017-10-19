@@ -31,8 +31,8 @@
         "mrlco/yii2-jalali-datepicker" : "~0.1.0",
 
 
-        "dmstr/yii2-adminlte-asset": "2.*",
-        "airani/yii2-adminlte-rtl": "^1.0",
+        "dmstr/yii2-adminlte-asset": "^2.1",
+        "airani/yii2-adminlte-rtl": "~1.0",
         "airani/yii2-bootstrap-rtl": "^1.2",
         "kartik-v/bootstrap-fileinput": "@dev",
         "2amigos/yii2-ckeditor-widget": "^2.1",
