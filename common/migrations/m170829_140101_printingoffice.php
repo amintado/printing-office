@@ -480,7 +480,7 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             'id' => $this->primaryKey(),
             'uid' => $this->integer(11),
             'date' => $this->datetime(),
-            'price' => $this->decimal(10, 2),
+            'price' => $this->decimal(10, 0),
             'description' => $this->string(255),
             'invoice' => $this->integer(11),
             'UUID' => $this->string(32),

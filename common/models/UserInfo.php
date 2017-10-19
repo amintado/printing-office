@@ -35,6 +35,7 @@ class UserInfo extends BaseTabanUserInfo
                 [['name', 'family', 'workname', 'state', 'city', 'tel1', 'tel2', 'tel3', 'mob1', 'mob2', 'website', 'jobcategory', 'address', 'file', 'lat', 'lng'], 'string', 'max' => 255],
                 [['nationCode', 'postalcode'], 'string', 'max' => 10],
                 [['UUID'], 'string', 'max' => 32],
+                [['balance'], 'string', 'max' => 12],
                 [['lock'], 'default', 'value' => '0'],
                 [['lock'], 'mootensai\components\OptimisticLockValidator']
             ]);
@@ -235,7 +236,7 @@ class UserInfo extends BaseTabanUserInfo
         if (!empty($Charge)) {
             $model->charge = (float)$Website;
         }
-
+        $model->balance='0';
 
         if ($model->validate()) {
             if ($model->save()) {

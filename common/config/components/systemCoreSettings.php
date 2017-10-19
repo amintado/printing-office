@@ -29,6 +29,7 @@ class systemCoreSettings extends Component
     public $KavehNegarSMSAPI_key = '';
     public $companyName = '';
     public $SMSPanelAPI = '';
+    public $payApi='';
     /**
      * This email Will Use In This Parts Of System::
      *

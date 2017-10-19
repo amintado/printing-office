@@ -1,5 +1,5 @@
 <?php
-/**
+/*******************************************************************************
  * Copyright (c) 2017.
  * this file created in printing-office project
  * framework: Yii2
@@ -8,7 +8,7 @@
  * Company:shahrmap.ir
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
- */
+ ******************************************************************************/
 
 return [
     // string, required, root directory of all source files
@@ -54,7 +54,7 @@ return [
     // 'php' output format is for saving messages to php files.
     'format' => 'php',
     // Root directory containing message translations.
-    'messagePath' => __DIR__ . '/translations/',
+    'messagePath' => __DIR__ . '/../translations/',
     // boolean, whether the message file should be overwritten with the merged messages
     'overwrite' => true,
 

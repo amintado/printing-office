@@ -40,6 +40,13 @@ return [
         ],
         'cms'=>[
             'class'=> amintado\wordpress\Module::className(),
+        ],
+        'inquery'=>[
+            'class'=>amintado\inquery\Module::className(),
+
+        ],
+        'datecontrol'=>[
+            'class'=>kartik\datecontrol\Module::className()
         ]
 
     ],

@@ -86,6 +86,29 @@ use common\models\User;
             'url' => ['/ticket/admin']
         ];
         $items[] = [
+            'label' => 'استعلام',
+            'items' =>
+                [
+                    [
+                        'label' => 'درخواست ها',
+                        'icon' => 'share',
+                        'url' => ['/inquery/manage']
+                    ],
+                    [
+                        'label' => 'دسته بندی ها',
+                        'icon' => 'share',
+                        'url' => ['/inquery/inquery-category']
+                    ]
+                ]
+        ];
+        $items[]=
+            [
+                    'label'=>'تنظیمات حساب',
+                'url'=>['/payment/manage/settings']
+
+
+            ];
+        $items[] = [
             'label' => 'سیستم',
             'icon' => 'no',
             'items' =>
@@ -100,6 +123,7 @@ use common\models\User;
                     ],
                 ]
         ];
+
 
 
         ?>

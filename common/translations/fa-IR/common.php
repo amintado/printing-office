@@ -30,6 +30,9 @@ return [
     'Profile' => 'ناحیه کاربری',
     'Logout' => 'خروج',
     'Sign Out' => 'خروج از حساب',
+    'balance'=>'موجودی',
+    'account balance'=>'موجودی حساب',
+    'Increase in inventory'=>'افزایش موجودی',
 
 
 
@@ -138,5 +141,14 @@ return [
     //---------------- Menus -------------------
 
     'Profile Side Tickets'=>'پشتیبانی',
+    'answered by'=>'کاربر پاسخگو',
+    'Qdescription'=>'متن درخواست',
+    'Qfile'=>'فایل پیوست',
+    'Qdate'=>'زمان درخواست',
+    'Adate'=>'زمان پاسخ',
+    'Afile'=>'فایل پیوست',
+    'Adescription'=>'متن پاسخ',
+    'Category'=>'موضوع استعلام',
+
 
 ];

@@ -40,6 +40,7 @@ use yii\behaviors\BlameableBehavior;
  * @property string $lat
  * @property string $lng
  * @property string $charge
+ * @property string $balance
  * @property integer $uid
  * @property string $UUID
  * @property string $lock
@@ -94,6 +95,7 @@ class UserInfo extends \yii\db\ActiveRecord
             [['name', 'family', 'workname', 'state', 'city', 'tel1', 'tel2', 'tel3', 'mob1', 'mob2', 'website', 'jobcategory', 'address', 'file', 'lat', 'lng'], 'string', 'max' => 255],
             [['nationCode', 'postalcode'], 'string', 'max' => 10],
             [['UUID'], 'string', 'max' => 32],
+            [['balance'], 'string', 'max' => 12],
             [['lock'], 'default', 'value' => '0'],
             [['lock'], 'mootensai\components\OptimisticLockValidator']
         ];
@@ -148,6 +150,7 @@ class UserInfo extends \yii\db\ActiveRecord
             'uid' => Yii::t('common', 'Uid'),
             'UUID' => Yii::t('common', 'Uuid'),
             'lock' => Yii::t('common', 'Lock'),
+            'balance' => Yii::t('common', 'balance'),
             'restored_by' => Yii::t('common', 'Restored By'),
         ];
     }
@@ -181,35 +184,6 @@ class UserInfo extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * The following code shows how to apply a default condition for all queries:
-     *
-     * ```php
-     * class Customer extends ActiveRecord
-     * {
-     *     public static function find()
-     *     {
-     *         return parent::find()->where(['deleted' => false]);
-     *     }
-     * }
-     *
-     * // Use andWhere()/orWhere() to apply the default condition
-     * // SELECT FROM customer WHERE `deleted`=:deleted AND age>30
-     * $customers = Customer::find()->andWhere('age>30')->all();
-     *
-     * // Use where() to ignore the default condition
-     * // SELECT FROM customer WHERE age>30
-     * $customers = Customer::find()->where('age>30')->all();
-     * ```
-     */
 
-    /**
-     * @inheritdoc
-     * @return \common\models\UserInfoQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        $query = new \common\models\UserInfoQuery(get_called_class());
-        return $query->where(['deleted_by' => 0]);
-    }
+
 }

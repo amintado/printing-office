@@ -14,7 +14,11 @@
  * @var $this View
  */
 
+use amintado\pay\widgets\PaymentDetailsWidget;
 use yii\web\View;
 $this->title=Yii::$app->systemCore->companyName;
 ?>
 <h3><?= Yii::$app->user->identity->fullname?> شما با موفقیت به پنل مدیریت لاگین شدید</h3>
+<?php
+echo PaymentDetailsWidget::widget()
+?>

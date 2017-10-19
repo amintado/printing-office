@@ -39,7 +39,7 @@ return [
             'translations' => [
                 'common*' => [
                     'class'    => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@common/config/translations',
+                    'basePath' => '@common/translations',
                     'fileMap'  => [
                         'backend' => 'common.php',
                     ],
@@ -52,28 +52,28 @@ return [
 //                ],
                 'ticket*' => [
                     'class'    => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@common/config/translations',
+                    'basePath' => '@common/translations',
                     'fileMap'  => [
                         'backend' => 'ticket.php',
                     ],
                 ],
                 'backend*' => [
                     'class'    => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@common/config/translations',
+                    'basePath' => '@common/translations',
                     'fileMap'  => [
                         'backend' => 'backend.php',
                     ],
                 ],
                 'frontend*' => [
                     'class'    => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@common/config/translations',
+                    'basePath' => '@common/translations',
                     'fileMap'  => [
                         'backend' => 'frontend.php',
                     ],
                 ],
                 'profile*' => [
                     'class'    => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@common/config/translations',
+                    'basePath' => '@common/translations',
                     'fileMap'  => [
                         'backend' => 'profile.php',
                     ],

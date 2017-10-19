@@ -12,6 +12,7 @@
 
 use common\config\components\functions;
 use common\models\User;
+use common\models\UserInfo;
 
 ?>
 <aside class="main-sidebar">
@@ -29,25 +30,36 @@ use common\models\User;
                 <a href="#"><i class="fa fa-circle text-success"></i> <?= Yii::t('backend', 'online') ?></a>
             </div>
         </div>
+        <div class="user-panel">
+            <div class="pull-right image">
+                <div style="color: white;" class="text-center">
+                <?= Yii::t('common', 'account balance').':' ?>
+                    <?php
 
-        <!-- search form -->
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="<?= Yii::t('backend', 'search') ?>"/>
-                <span class="input-group-btn">
-                <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
+                    echo   number_format(intval(  \common\models\base\UserInfo::find()->where(['uid'=>Yii::$app->user->id])->one()->balance ), 0, ',', ',');
+                ?>
+                    ریال
+                </div>
             </div>
-        </form>
-        <!-- /.search form -->
+            <div class="pull-right">
+                <a name="" id="" class="btn btn-success" href="<?= Yii::$app->urlManager->createUrl(['/payment/default/create']) ?> " role="button"><?= Yii::t('common', 'Increase in inventory') ?> </a>
+            </div>
+        </div>
+        
 
         <?= dmstr\widgets\Menu::widget(
             [
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [
-                    ['label' => Yii::t('backend', 'main-menu'), 'options' => ['class' => 'header']],
-                    ['label' => Yii::t('backend', 'home'), 'icon' => 'home', 'url' => ['/site']],
+                    [
+                        'label' => Yii::t('backend', 'main-menu'),
+                        'options' => ['class' => 'header']
+                    ],
+                    [
+                        'label' => Yii::t('backend', 'home'),
+                        'icon' => 'home',
+                        'url' => ['/site']
+                    ],
 
                     [
                         'label' => Yii::t('common', 'User Profile View'),
@@ -57,8 +69,23 @@ use common\models\User;
                     ],
                     [
                         'label' => Yii::t('common', 'Profile Side Tickets'),
-                        'icon' =>'headphones',
-                        'url'=>['/ticket']
+                        'icon' => 'headphones',
+                        'url' => ['/ticket']
+                    ],
+                    [
+                        'label' => 'استعلام',
+                        'url' => ['/inquery']
+                    ],
+                    [
+                        'label' => 'حساب',
+                        'items' =>
+                            [
+                                [
+                                    'label' => 'صورت حساب',
+                                    'icon' => 'share',
+                                    'url' => ['/payment']
+                                ]
+                            ]
                     ]
 
 

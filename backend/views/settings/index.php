@@ -41,3 +41,4 @@ $this->registerJsFile('@assets/js/page_number.js');
         </tbody>
     </table>
 </div>
+<?= amintado\pay\widgets\PaymentsettingsWidget::widget() ?>

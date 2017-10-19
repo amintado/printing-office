@@ -37,6 +37,15 @@ return [
         ],
         'slider'=>[
             'class'=> amintado\slider\Module::className(),
+        ],
+        'inquery'=>
+        [
+            'class'=>amintado\inquery\Module::className(),
+
+        ],
+        'datecontrol'=>
+        [
+            'class'=> 'kartik\datecontrol\Module'
         ]
     ],
     'components' => [

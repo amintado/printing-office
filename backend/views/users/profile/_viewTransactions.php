@@ -9,5 +9,10 @@
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
  ******************************************************************************/
+
+use amintado\pay\widgets\PaymentTransactionsWidget;
+
+echo PaymentTransactionsWidget::widget(['UserID' => $user->ID]);
 ?>
+
 <h4>این کاربر تراکنش مالی نداشته است</h4>

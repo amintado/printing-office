@@ -14,6 +14,7 @@
  * @var $this View
  */
 
+use amintado\pay\widgets\PaymentDetailsWidget;
 use yii\web\View;
 
 $user = get_user_by( 'login', Yii::$app->systemCore->wordpressUsername );
@@ -32,5 +33,6 @@ include(LS_ROOT_PATH.'/classes/class.ls.revisions.php');
 
 include(LS_ROOT_PATH.'/views/slider_edit.php');
 admin_url('admin.php?page=layerslider&action=edit&id=1');
+
 ?>
 

@@ -10,6 +10,8 @@
  * All rights reserved.
  ******************************************************************************/
 
+use Codeception\Module\Yii2;
+
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),
@@ -25,6 +27,9 @@ return [
     'controllerNamespace' => 'profile\controllers',
     'bootstrap' => ['log'],
     'modules' => [
+        'gridview'=>[
+          'class'=>'kartik\grid\Module'
+        ],
         'ticket' => [
             'class' => amintado\ticket\Module::className(),
             'qq' =>
@@ -33,8 +38,17 @@ return [
                     'Technical' => 'بخش فنی'
                 ]
         ],
+        'inquery'=> [
+            'class'=>amintado\inquery\Module::className(),
+
+        ],
+        'datecontrol'=>[
+            'class'=>kartik\datecontrol\Module::className()
+        ],
+
     ],
     'components' => [
+
         'view' => [
             'title' => Yii::t('profile','app-name'),
             'theme' => [

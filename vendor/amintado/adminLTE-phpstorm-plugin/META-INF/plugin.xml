@@ -1,0 +1,37 @@
+<idea-plugin version="2">
+  <id>com.amintado.bootstrap</id>
+  <name>Bootstrap3</name>
+  <version>0.1.1</version>
+  <vendor email="@amintado" url="https://github.com/amintado/bootstrap3-phpstorm-plugin">@amintado</vendor>
+
+  <description><![CDATA[
+      <h2>aminLTE live templates / snippets</h2>
+      <p><a href="https://github.com/amintado/adminLTE-phpstorm-plugin">GitHub Homepage</a></p>
+      <br />
+
+      
+    ]]></description>
+
+  <change-notes><![CDATA[
+      <dl>
+        <<dt>No changes so far...</dt>
+        <dd></dd>
+      </dl>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="107.105"/>
+
+  <!-- please see http://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products -->
+  <depends>com.intellij.modules.lang</depends>
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+      <defaultLiveTemplatesProvider implementation="com.amintado.bootstrap.BootstapTemplatesProvider" />
+  </extensions>
+
+</idea-plugin>

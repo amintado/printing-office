@@ -1,4 +1,15 @@
 <?php
+/*******************************************************************************
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ ******************************************************************************/
+
 use airani\AdminLteRtlAsset;
 use dmstr\web\AdminLteAsset;
 use yii\helpers\Html;
@@ -25,9 +36,9 @@ if (Yii::$app->controller->action->id === 'login') {
 
 
     if (class_exists('backend\assets\AppAsset')) {
-        backend\assets\AppAsset::register($this);
+        profile\assets\AppAsset::register($this);
     } else {
-        backend\assets\AppAsset::register($this);
+        profile\assets\AppAsset::register($this);
     }
 
     AdminLteRtlAsset::register($this);
@@ -43,8 +54,9 @@ if (Yii::$app->controller->action->id === 'login') {
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
+        <link href="https://fonts.googleapis.com/css?family=Harmattan" rel="stylesheet">
     </head>
-    <body class="hold-transition skin-blue sidebar-mini" style="direction: rtl !important;text-align: right !important;">
+    <body class="hold-transition skin-blue sidebar-mini" style="direction: rtl !important;text-align: right !important;font-family: 'Harmattan', sans-serif !important;">
     <?php $this->beginBody() ?>
     <div class="wrapper">
 
