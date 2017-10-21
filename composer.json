@@ -48,7 +48,7 @@
         "amintado/yii2-module-slider":"dev-master",
         "amintado/yii2-module-wordpress":"dev-master",
         "amintado/yii2-amintado-global-functions":"@dev",
-        "amintado/yii2-ticket":"@dev",
+        "amintado/yii2-ticket":"dev-master",
         "yiisoft/yii2-debug": "~2.0.0",
         "yiisoft/yii2-gii": "~2.0.0",
         "kartik-v/yii2-grid": "@dev",
