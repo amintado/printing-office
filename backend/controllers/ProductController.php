@@ -49,8 +49,33 @@ class ProductController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['index', 'view', 'create', 'update', 'delete', 'pdf', 'save-as-new', 'add-product-gallery', 'add-product-specifications', 'add-product-step-property', 'add-product-technical-specification', 'upload', 'delete-pic'],
+                        'actions' => ['add-product-gallery', 'add-product-specifications', 'add-product-step-property', 'add-product-technical-specification', 'upload', 'delete-pic','save-as-new'],
                         'roles' => ['@']
+                    ],
+                    [
+                      'allow'=>true,
+                        'actions'=>['index'],
+                        'roles'=>['productIndex']
+                    ],[
+                      'allow'=>true,
+                        'actions'=>['view'],
+                        'roles'=>['productView']
+                    ],[
+                      'allow'=>true,
+                        'actions'=>['create'],
+                        'roles'=>['productCreate']
+                    ],[
+                      'allow'=>true,
+                        'actions'=>['update'],
+                        'roles'=>['productUpdate']
+                    ],[
+                      'allow'=>true,
+                        'actions'=>['delete'],
+                        'roles'=>['productDelete']
+                    ],[
+                      'allow'=>true,
+                        'actions'=>['pdf'],
+                        'roles'=>['productPdf']
                     ],
                     [
                         'allow' => false

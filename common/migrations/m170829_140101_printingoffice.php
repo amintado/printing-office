@@ -552,6 +552,8 @@ class m170829_140101_printingoffice extends \yii\db\Migration
             $info->uid=1;
 
             $info->save();
+            // the following three lines were added:
+
 
         }
 

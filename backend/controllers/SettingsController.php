@@ -32,6 +32,17 @@ class SettingsController extends Controller {
                     'delete' => ['POST'],
                 ],
             ],
+            'access' => [
+                'class' => \yii\filters\AccessControl::className(),
+                'rules' =>
+                    [
+                        [
+                            'allow'=>true,
+                            'actions'=>['index'],
+                            'roles'=>['settings']
+                        ],
+                    ]
+            ]
         ];
     }
     public function actionIndex() {

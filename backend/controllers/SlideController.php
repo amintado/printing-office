@@ -21,10 +21,37 @@ namespace backend\controllers;
 
 
 use Yii;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 
 class SlideController extends Controller
 {
+    public function behaviors() {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => \yii\filters\AccessControl::className(),
+                'rules' =>
+                    [
+                        [
+                            'allow'=>true,
+                            'actions'=>['index'],
+                            'roles'=>['SlideManage']
+                        ],
+                        [
+                            'allow'=>true,
+                            'actions'=>['help'],
+                            'roles'=>['SlideHelp']
+                        ],
+                    ]
+            ]
+        ];
+    }
     public function actionIndex()
     {
         do_action( 'in_admin_header' );

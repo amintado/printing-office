@@ -57,8 +57,48 @@ class UsersController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['index', 'view', 'create', 'update', 'delete', 'add-auth-assignment', 'add-inquery', 'add-notification', 'add-order-status-log', 'add-ticket-head', 'add-transaction', 'add-user-info'],
+                        'actions' =>
+                            [
+                                'add-auth-assignment',
+                                'add-inquery',
+                                'add-notification',
+                                'add-order-status-log',
+                                'add-ticket-head',
+                                'add-transaction',
+                                'add-user-info',
+                            ]
+                        ,
                         'roles' => ['@']
+                    ],
+                    [
+                        'allow'=>true,
+                        'actions'=>['index'],
+                        'roles'=>['userIndex']
+                    ],
+                    [
+                        'allow'=>true,
+                        'actions'=>['view'],
+                        'roles'=>['userView']
+                    ],
+                    [
+                      'allow'=>true,
+                      'actions'=>['create'],
+                      'roles'=>['userCreate'],
+                    ],
+                    [
+                      'allow'=>true,
+                        'actions'=>['Update'],
+                        'roles'=>['userUpdate']
+                    ],
+                    [
+                        'allow'=>true,
+                        'actions'=>['delete'],
+                        'roles'=>['userDelete']
+                    ],
+                    [
+                        'allow'=>true,
+                        'actions'=>['help'],
+                        'roles'=>['userHelp']
                     ],
                     [
                         'allow' => false
@@ -379,7 +419,10 @@ class UsersController extends Controller
         }
     }
 
-
+    public function actionHelp(){
+        $this->layout='main-help';
+        return $this->render('help');
+    }
 
 
 

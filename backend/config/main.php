@@ -35,18 +35,21 @@ return [
                     'Technical' => 'بخش فنی'
                 ]
         ],
-        'slider'=>[
-            'class'=> amintado\slider\Module::className(),
+        'slider' => [
+            'class' => amintado\slider\Module::className(),
         ],
-        'inquery'=>
-        [
-            'class'=>amintado\inquery\Module::className(),
+        'inquery' =>
+            [
+                'class' => amintado\inquery\Module::className(),
 
-        ],
-        'datecontrol'=>
-        [
-            'class'=> 'kartik\datecontrol\Module'
-        ]
+            ],
+        'datecontrol' =>
+            [
+                'class' => 'kartik\datecontrol\Module'
+            ],
+
+
+
     ],
     'components' => [
         'view' => [
@@ -89,9 +92,7 @@ return [
             ],
         ],
 
-        'authManager' => [
-            'class' => 'yii\rbac\DbManager',
-        ],
+
 
     ],
     'params' => $params,

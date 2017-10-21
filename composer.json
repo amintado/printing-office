@@ -27,7 +27,7 @@
         "2amigos/yii2-highcharts-widget": "~1.0",
         "miloschuman/yii2-highcharts-widget": "*",
         "emojione/emojione": "^2.2",
-        "johnitvn/yii2-rbac-plus": "*",
+
         "mrlco/yii2-jalali-datepicker" : "~0.1.0",
 
 
@@ -55,7 +55,7 @@
         "bazilio/yii2-stubs-generator": "~1",
         "yiisoft/yii2-faker": "~2.0.0",
         "amintado/yii2-aprico-asset": "dev-master",
-
+        "amintado/yii2-module-rbac-plus": "dev-master",
         "codeception/base": "^2.2.3",
         "codeception/verify": "~0.3.1"
     },

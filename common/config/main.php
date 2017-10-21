@@ -12,35 +12,44 @@
 
 return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
-    'language'   => 'fa-IR',
+    'language' => 'fa-IR',
+    'modules' => [
+        'payment' => [
+            'class' => amintado\pay\Module::className(),
+            'PayIRapi' => 'test'
+        ],
+        'rbac' =>  [
+            'class' => 'amintado\rbacplus\Module'
+        ]
+    ],
     'components' => [
 
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'mcrypt'=>[
-            'class'=>'common\config\components\mcrypt'
+        'mcrypt' => [
+            'class' => 'common\config\components\mcrypt'
         ],
-        'functions'=>[
-            'class'=>'amintado\base\AmintadoFunctions',
+        'functions' => [
+            'class' => 'amintado\base\AmintadoFunctions',
             'telegram_bot' => '@shahrmap_debug'
         ],
-        'stat'=>[
-            'class'=> 'common\config\components\stat',
+        'stat' => [
+            'class' => 'common\config\components\stat',
         ],
 
-        'mdetect' =>           [
+        'mdetect' => [
             'class' => 'common\components\mdetect'
         ],
-        'curl' =>           [
+        'curl' => [
             'class' => 'common\config\components\curl'
         ],
-        'i18n'              => [
+        'i18n' => [
             'translations' => [
                 'common*' => [
-                    'class'    => 'yii\i18n\PhpMessageSource',
+                    'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@common/translations',
-                    'fileMap'  => [
+                    'fileMap' => [
                         'backend' => 'common.php',
                     ],
                 ],
@@ -51,37 +60,39 @@ return [
 //                    'fileMap' => 'atslider.php'
 //                ],
                 'ticket*' => [
-                    'class'    => 'yii\i18n\PhpMessageSource',
+                    'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@common/translations',
-                    'fileMap'  => [
+                    'fileMap' => [
                         'backend' => 'ticket.php',
                     ],
                 ],
                 'backend*' => [
-                    'class'    => 'yii\i18n\PhpMessageSource',
+                    'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@common/translations',
-                    'fileMap'  => [
+                    'fileMap' => [
                         'backend' => 'backend.php',
                     ],
                 ],
                 'frontend*' => [
-                    'class'    => 'yii\i18n\PhpMessageSource',
+                    'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@common/translations',
-                    'fileMap'  => [
+                    'fileMap' => [
                         'backend' => 'frontend.php',
                     ],
                 ],
                 'profile*' => [
-                    'class'    => 'yii\i18n\PhpMessageSource',
+                    'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@common/translations',
-                    'fileMap'  => [
+                    'fileMap' => [
                         'backend' => 'profile.php',
                     ],
                 ],
 
             ],
         ],
-
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
     ],
-    'aliases' => require (__DIR__.'/alias.php')
+    'aliases' => require(__DIR__ . '/alias.php')
 ];

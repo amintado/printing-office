@@ -38,9 +38,7 @@ return [
         'slider'=>[
             'class'=> amintado\slider\Module::className(),
         ],
-        'cms'=>[
-            'class'=> amintado\wordpress\Module::className(),
-        ],
+
         'inquery'=>[
             'class'=>amintado\inquery\Module::className(),
 
