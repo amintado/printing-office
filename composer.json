@@ -42,6 +42,8 @@
 
 
     },
+    "minimum-stability" : "dev",
+    "prefer-stable" : true,
     "require-dev": {
         "amintado/yii2-module-slider":"dev-master",
         "amintado/yii2-module-wordpress":"dev-master",
