@@ -40,6 +40,7 @@ return [
         ],
         'inquery'=> [
             'class'=>amintado\inquery\Module::className(),
+            'eventClass' => 'common\config\components\inqueryEvent'
 
         ],
         'datecontrol'=>[

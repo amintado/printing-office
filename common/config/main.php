@@ -16,7 +16,8 @@ return [
     'modules' => [
         'payment' => [
             'class' => amintado\pay\Module::className(),
-            'PayIRapi' => 'test'
+            'PayIRapi' => 'test',
+            //'eventClass' => 'common\config\components\PayEvent'
         ],
         'rbac' =>  [
             'class' => 'amintado\rbacplus\Module'

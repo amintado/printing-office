@@ -27,7 +27,7 @@
         "2amigos/yii2-highcharts-widget": "~1.0",
         "miloschuman/yii2-highcharts-widget": "*",
         "emojione/emojione": "^2.2",
-
+        "kavenegar/php": "*",
         "mrlco/yii2-jalali-datepicker" : "~0.1.0",
 
 
@@ -39,8 +39,6 @@
         "pheme/yii2-settings": "*",
         "amintado/yii2-module-inquery": "@dev",
         "amintado/yii2-module-pay": "dev-master"
-
-
     },
     "minimum-stability" : "dev",
     "prefer-stable" : true,
