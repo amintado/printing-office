@@ -45,7 +45,9 @@ return [
         ],
         'datecontrol'=>[
             'class'=>kartik\datecontrol\Module::className()
-        ]
+        ],
+
+
 
     ],
     'bootstrap' => ['log'],

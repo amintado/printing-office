@@ -214,11 +214,26 @@ use common\models\User;
         }
 
 
+        $items[9] = ['label' => 'انبارداری', 'options' => ['class' => 'header']];
+
+
+        $items[10] = [
+            'label' => 'انبارها',
+            'icon' => '',
+            'url' => ['/inventory/storage']
+        ];
+
+        $items[11] = [
+            'label' => 'ثبت چاپ',
+            'url' => ['/inventory/print/index'],
+            'icon' => ''
+        ];
+
         if
         (
-            Yii::$app->user->can('settings')
-        ){
-            $items[9] = [
+        Yii::$app->user->can('settings')
+        ) {
+            $items[12] = [
                 'label' => 'سیستم',
                 'icon' => 'no',
                 'items' =>
@@ -234,8 +249,6 @@ use common\models\User;
                     ]
             ];
         }
-
-
 
 
         ?>

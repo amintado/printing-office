@@ -21,7 +21,14 @@ return [
         ],
         'rbac' =>  [
             'class' => 'amintado\rbacplus\Module'
-        ]
+        ],
+        'option'=>[
+            'class'=>'amintado\options\Module'
+        ],
+        'inventory'=>[
+            'class'=>'amintado\pinventory\Module'
+        ],
+        'Store' => [ 'class' => 'lilhamma\store\Module'],
     ],
     'components' => [
 
