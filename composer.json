@@ -37,7 +37,8 @@
         "pheme/yii2-settings": "*",
         "amintado/yii2-module-inquery": "@dev",
         "amintado/yii2-module-pay": "dev-master",
-        "faravaghi/yii2-jalali-datepicker": "*"
+        "faravaghi/yii2-jalali-datepicker": "*",
+        "drsdre/yii2-wizardwidget": "*"
     },
     "minimum-stability" : "dev",
     "prefer-stable" : true,

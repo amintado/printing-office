@@ -38,13 +38,25 @@ use yii\behaviors\BlameableBehavior;
  * @property string $restored_by
  * @property string $hash_id
  * @property integer $status
- *
- *
- *
+ * @property integer $category
+ * @property integer zink
+ * @property double $weight
+ * @property string $theme_file
+ * @property int $dimensions_mode
+ * @property string $dimensions_settings
+ * @property string $files_options
+ * @property string $tiraj_options
  * @property string $statusText
- *
  * @property \common\models\ProductGallery[] $productGalleries
  * @property \common\models\ProductStepProperty[] $productStepProperties
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
 class Product extends \yii\db\ActiveRecord
 {
@@ -90,11 +102,10 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['description', 'specification', 'technical_specification'], 'string'],
+            [['description', 'specification', 'technical_specification','theme_file','dimensions_settings','files_options','tiraj_options'], 'string'],
             [['lock', 'created_by', 'updated_by', 'deleted_by', 'restored_by'], 'integer'],
-
-
-            [['status'],'integer'],
+            [['status','category','zink','dimensions_mode'],'integer'],
+            [['weight'],'double'],
             [['created_at', 'updated_at'], 'safe'],
             [['title'], 'string', 'max' => 255],
             [['UUID'], 'string', 'max' => 32],
@@ -140,6 +151,10 @@ class Product extends \yii\db\ActiveRecord
             'specification' => Yii::t('backend', 'Product Specification'),
             'technical_specification' => Yii::t('backend', 'Product Technical Specification'),
             'status' => Yii::t('backend', 'Status'),
+            'category'=>'دسته',
+            'zink'=>'زینک',
+            'Weight'=>'وزن',
+            'theme_file'=>'فایل قالب'
         ];
     }
 

@@ -10,9 +10,20 @@
  * All rights reserved.
  ******************************************************************************/
 
-Yii::setAlias('@common', dirname(__DIR__));
-Yii::setAlias('@frontend', dirname(dirname(__DIR__)) . '/frontend');
-Yii::setAlias('@backend', dirname(dirname(__DIR__)) . '/backend');
-Yii::setAlias('@console', dirname(dirname(__DIR__)) . '/console');
-Yii::setAlias('@profile', dirname(dirname(__DIR__)) . '/profile');
-Yii::setAlias('@dl', dirname(dirname(__DIR__)) . '/dl');
+use yii\helpers\Html;
+
+
+/* @var $this yii\web\View */
+/* @var $model common\models\base\ProductCategory */
+
+
+?>
+<div class="product-category-create">
+
+    <h1>ثبت دسته بندی محصول</h1>
+
+    <?= $this->render('_form', [
+        'model' => $model,
+    ]) ?>
+
+</div>

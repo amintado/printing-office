@@ -80,6 +80,16 @@ use yii\widgets\ActiveForm;
                 ]
             ),
         ],
+        [
+            'label' => '<i class="glyphicon glyphicon-book"></i> ' . Html::encode('ابعاد'),
+            'content' => $this->render('forms/dimensions/_form',
+                [
+                    'model' => $model,
+                    'form' => $form,
+                    'mode'=> $mode
+                ]
+            ),
+        ],
     ];
     echo kartik\tabs\TabsX::widget([
         'items' => $forms,

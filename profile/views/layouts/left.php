@@ -60,7 +60,10 @@ use common\models\UserInfo;
                         'icon' => 'home',
                         'url' => ['/site']
                     ],
-
+                    [
+                        'label'=> 'سفارش چاپ',
+                        'url'=>['/order']
+                    ],
                     [
                         'label' => Yii::t('common', 'User Profile View'),
                         'icon' => 'share',

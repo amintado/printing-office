@@ -9,10 +9,14 @@
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
  ******************************************************************************/
+?>
 
-Yii::setAlias('@common', dirname(__DIR__));
-Yii::setAlias('@frontend', dirname(dirname(__DIR__)) . '/frontend');
-Yii::setAlias('@backend', dirname(dirname(__DIR__)) . '/backend');
-Yii::setAlias('@console', dirname(dirname(__DIR__)) . '/console');
-Yii::setAlias('@profile', dirname(dirname(__DIR__)) . '/profile');
-Yii::setAlias('@dl', dirname(dirname(__DIR__)) . '/dl');
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>
+مرحله ی سوم
+            </h3>
+        </div>
+    </div>
+</div>

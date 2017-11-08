@@ -10,9 +10,21 @@
  * All rights reserved.
  ******************************************************************************/
 
-Yii::setAlias('@common', dirname(__DIR__));
-Yii::setAlias('@frontend', dirname(dirname(__DIR__)) . '/frontend');
-Yii::setAlias('@backend', dirname(dirname(__DIR__)) . '/backend');
-Yii::setAlias('@console', dirname(dirname(__DIR__)) . '/console');
-Yii::setAlias('@profile', dirname(dirname(__DIR__)) . '/profile');
-Yii::setAlias('@dl', dirname(dirname(__DIR__)) . '/dl');
+/**
+ * Created by PhpStorm.
+ * User: amin__000
+ * Date: 11/6/2017
+ * Time: 9:35 AM
+ */
+
+namespace profile\controllers;
+
+
+use yii\web\Controller;
+
+class OrderController extends Controller
+{
+    public function actionIndex(){
+        return $this->render('index');
+    }
+}

@@ -29,6 +29,19 @@ return [
             'class'=>'amintado\pinventory\Module'
         ],
         'Store' => [ 'class' => 'lilhamma\store\Module'],
+        'modules'=>
+            [
+                'class' => 'yii\gii\Module',
+                'allowedIPs' => ['127.0.0.1', '::1', '192.168.0.*', '192.168.178.20'],
+                'generators' => [ //here
+                    'crud' => [ // generator name
+                        'class' => 'yii\gii\generators\crud\Generator', // generator class
+                        'templates' => [ //setting for out templates
+                            'persian' => '@vendor/amintado/yii2-enhanced-gii-crud-template/persian', // template name => path to template
+                        ]
+                    ]
+                ],
+            ]
     ],
     'components' => [
 

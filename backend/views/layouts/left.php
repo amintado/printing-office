@@ -127,11 +127,50 @@ use common\models\User;
             Yii::$app->user->can('productDelete') or
             Yii::$app->user->can('productPdf')
         ) {
-            $items[5] = [
-                'label' => 'مدیریت محصولات',
-                'icon' => 'inbox',
-                'url' => ['/product']
-            ];
+
+            $a =
+                [
+                    'label' => 'مدیریت محصولات',
+                    'icon' => 'index',
+                    'items' =>
+                        [
+                            [
+                                'label' => 'مدیریت محصولات',
+                                'icon' => 'inbox',
+                                'url' => ['/product']
+                            ],
+                            [
+                                'label' => 'مدیریت دسته ی محصولات',
+                                'icon' => '',
+                                'url' => ['/product-category']
+                            ],
+                            [
+                                'label' => 'ویژگی های محصول',
+                                'icon' => 'index',
+                                'items' => [
+                                    [
+                                        'label' => 'مدیریت ویژگی های محصول',
+                                        'icon' => 'index',
+                                        'url' => ['/product-properties']
+                                    ],
+                                    [
+                                            'label'=>'مدیریت گروه ها',
+                                        'icon'=>'index',
+                                        'url'=>['/product-property-groups']
+                                    ]
+                                ]
+
+                            ],
+                            [
+                                'label' => 'مدیریت زینک ها',
+                                'icon' => 'index',
+                                'url' => ['/zink']
+                            ],
+
+                        ]
+                ];
+            $items[5] = $a;
+
         }
 
         if
@@ -145,7 +184,7 @@ use common\models\User;
             Yii::$app->user->can('TicketAdminOpen') or
             Yii::$app->user->can('TicketAdminAnswer')
         ) {
-            $items[6] = [
+            $items[7] = [
                 'label' => 'پشتیبانی',
                 'icon' => 'headphones',
                 'url' => ['/ticket/admin']
@@ -172,7 +211,7 @@ use common\models\User;
                 Yii::$app->user->can('InqueryConfirm')
             )
         ) {
-            $items[7] = [
+            $items[8] = [
                 'label' => 'استعلام',
                 'items' => []
             ];
@@ -188,7 +227,7 @@ use common\models\User;
             Yii::$app->user->can('InqueryCategoryDelete') or
             Yii::$app->user->can('InqueryCategoryHelp')
         ) {
-            $items[7]['items'][] =
+            $items[8]['items'][] =
                 [
                     'label' => 'دسته بندی ها',
                     'icon' => 'share',
@@ -205,7 +244,7 @@ use common\models\User;
             Yii::$app->user->can('InqueryHelp') or
             Yii::$app->user->can('InqueryConfirm')
         ) {
-            $items[7]['items'][] =
+            $items[8]['items'][] =
                 [
                     'label' => 'درخواست ها',
                     'icon' => 'share',
