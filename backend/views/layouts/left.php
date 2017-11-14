@@ -154,9 +154,9 @@ use common\models\User;
                                         'url' => ['/product-properties']
                                     ],
                                     [
-                                            'label'=>'مدیریت گروه ها',
-                                        'icon'=>'index',
-                                        'url'=>['/product-property-groups']
+                                        'label' => 'مدیریت گروه ها',
+                                        'icon' => 'index',
+                                        'url' => ['/product-property-groups']
                                     ]
                                 ]
 
@@ -166,6 +166,7 @@ use common\models\User;
                                 'icon' => 'index',
                                 'url' => ['/zink']
                             ],
+
 
                         ]
                 ];
@@ -257,16 +258,46 @@ use common\models\User;
 
 
         $items[10] = [
-            'label' => 'انبارها',
+            'label' => 'انبارداری',
             'icon' => '',
-            'url' => ['/inventory/storage']
+            'items' =>
+                [
+                    [
+                        'label' => 'انبارها',
+                        'icon' => 'index',
+                        'url' => ['/inventory/storage']
+                    ],
+//                    [
+//                        'label' => 'اقلام هر انبار',
+//                        'icon' => 'index',
+//                        'url' => ['/inventory/storage-items']
+//                    ],
+                    [
+                        'label' => 'مدیریت کالاها',
+                        'icon' => 'index',
+                        'url' => ['/inventory/product']
+                    ],
+
+                    [
+                        'label' => 'مدیریت چاپ',
+                        'url' => ['/inventory/print/index'],
+                        'icon' => ''
+                    ],
+                    [
+                        'label' => 'لیتوگرافی',
+                        'icon' => 'index',
+                        'url' => ['/litography']
+                    ],
+                    [
+                        'label' => 'کاردکس کالا',
+                        'icon' => 'index',
+                        'url' => ['/inventory/cardex']
+                    ],
+                ]
+
         ];
 
-        $items[11] = [
-            'label' => 'ثبت چاپ',
-            'url' => ['/inventory/print/index'],
-            'icon' => ''
-        ];
+        //        $items[11] = ;
 
         if
         (
