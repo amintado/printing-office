@@ -22,13 +22,15 @@ use yii\widgets\ActiveForm;
 $this->title = Yii::t('backend', 'Create Product');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Products'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
+
 ?>
 <div class="product-create">
     <div class="row">
         <div class="col-md-9">
 
             <?php
-            $form = ActiveForm::begin();
+            $form = ActiveForm::begin(['id' => 'mainform']);
             ?>
 
             <?= $this->render('_form', [

@@ -42,22 +42,20 @@ class SignupForm extends Model
 
         $S[self::SCENARIO_GET_MOBILE] =
             [
-                ['username', 'string', 'min' => 11, 'max' => 17],
-                ['username', 'required'],
-                ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('common', 'This mobile has already been taken.')],
+                'username',
             ];
 
 
         $S[self::SCENARIO_GET_CODE] =
             [
-                ['VerificationCode', 'string', 'min' => 4, 'max' => 7],
-                ['VerificationCode', 'required'],
+                'VerificationCode'
             ];
 
         $S[self::SCENARIO_GET_USER_DETAIL] =
             [
-                [['name', 'family', 'id'], 'string', 'min' => 3, 'max' => 40],
-                [['name', 'family', 'id'], 'required']
+                'name',
+                'family',
+                'id'
 
             ];
 
@@ -71,20 +69,21 @@ class SignupForm extends Model
     {
         return [
             [['username'], 'required', 'on' => self::SCENARIO_GET_MOBILE],
-            [['VerificationCode'], 'required', 'on' => self::SCENARIO_GET_CODE],
+            ['username', 'string', 'min' => 11, 'max' => 17,'on' => self::SCENARIO_GET_MOBILE],
+
+
             [['name', 'family'], 'required', 'on' => self::SCENARIO_GET_USER_DETAIL],
 
             ['username', 'string', 'min' => 11, 'max' => 17],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('common', 'This mobile has already been taken.')],
 
 
-            ['VerificationCode', 'string', 'min' => 4, 'max' => 7],
-            ['VerificationCode', 'required'],
+            [['VerificationCode'], 'required', 'on' => self::SCENARIO_GET_CODE],
+            ['VerificationCode', 'string', 'min' => 4, 'max' => 7,'on' =>self::SCENARIO_GET_CODE ],
 
 
-            [['name', 'family', 'id'], 'string', 'min' => 3, 'max' => 40],
-            [['name', 'family', 'id'], 'required']
+            [['name', 'family', 'id'], 'string', 'min' => 3, 'max' => 40,'on' => self::SCENARIO_GET_USER_DETAIL],
+            [['name', 'family', 'id'], 'required','on' => self::SCENARIO_GET_USER_DETAIL]
         ];
     }
 
@@ -119,7 +118,6 @@ class SignupForm extends Model
     {
         $this->scenario = self::SCENARIO_GET_MOBILE;
         if (!$this->validate()) {
-
             return null;
         }
 
@@ -227,6 +225,7 @@ class SignupForm extends Model
             return null;
         }
         $user = User::find()->where(['hash_id' => $this->id])->one();
+
         if (!empty($user)) {
             $info = UserInfo::find()->where(['uid' => $user->id])->one();
             $info->name = $this->name;

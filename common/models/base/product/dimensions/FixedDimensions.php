@@ -25,12 +25,14 @@ use yii\base\Model;
  */
 class FixedDimensions extends Model
 {
+    public $price,$fixed_height,$fixed_width,$invisible_dimensions;
     public function rules()
     {
         return
         [
           [['price','fixed_height','fixed_width'],'double'],
-            [['invisible_dimensions'],'boolean']
+            [['invisible_dimensions'],'boolean'],
+            [['price','fixed_height','fixed_width'],'required']
         ];
     }
 

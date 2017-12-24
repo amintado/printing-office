@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-sm-8">
-
+            <h3>هش : <?= $model->hash_id ?> </h3>
         </div>
         <div class="col-sm-4" style="margin-top: 15px">
             <?php
@@ -63,7 +63,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         <h3 class="panel-title"><?= Yii::t('common', 'Product Details') ?></h3>
                     </div>
                     <div class="panel-body">
-
                         <?php
 
                         echo TabsX::widget(

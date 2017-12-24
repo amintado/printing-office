@@ -10,8 +10,7 @@
  * All rights reserved.
  ******************************************************************************/
 
-use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\tabs\TabsX;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\SettingsSearch */
@@ -22,23 +21,23 @@ $this->params['breadcrumbs'][] = $this->title;
 $this->registerJsFile('@assets/js/page_number.js');
 ?>
 <div class="settings-index">
+    <?=
+    TabsX::widget([
+        'items' =>
+            [
+                [
+                    'label' => 'تنظیمات سیستم پرداخت آنلاین',
+                    'content' => amintado\pay\widgets\PaymentsettingsWidget::widget()
+                ],
+                [
+                    'label' => 'تنظیمات سیستم انبار داری',
+                    'content' => amintado\pinventory\widgets\SettingsWidget::widget()
+                ]
+
+            ]
+    ])
+    ?>
 
 
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>نوع تنظیم</th>
-            <th>تنظیم</th>
-        </tr>
-        
-        </thead>
-        <tbody>
-        <tr>
-            <td>
-
-            </td>
-        </tr>
-        </tbody>
-    </table>
 </div>
-<?= amintado\pay\widgets\PaymentsettingsWidget::widget() ?>
+

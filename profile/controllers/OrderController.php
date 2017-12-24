@@ -20,11 +20,30 @@
 namespace profile\controllers;
 
 
+use common\models\Product;
+use common\models\User;
+use Yii;
+use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 
 class OrderController extends Controller
 {
-    public function actionIndex(){
-        return $this->render('index');
+    /**
+     * @param $id string product hash id
+     * @return string
+     */
+    public function actionIndex($id){
+
+        $product=Product::findOne(['hash_id'=>$id]);
+        if (empty($product)){
+            throw new BadRequestHttpException('Bad Parameter');
+        }
+        $user=User::findOne(['id'=>Yii::$app->user->id]);
+        return $this->render('index',
+            [
+                'product'=> $product,
+                'user'=>$user
+            ]
+            );
     }
 }

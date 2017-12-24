@@ -55,7 +55,7 @@ $this->registerJs("
 ");
 
 ?>
-<div class="users-form col-md-4">
+<div class="users-form col-md-6">
 
 
 

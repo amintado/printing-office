@@ -38,57 +38,66 @@ use yii\web\View;
     }
 </style>
 <div class="container-fluid">
-    <div class="row">
+    <div class="row" style="margin-top:100px">
         <h4><?= $model->title ?></h4>
     </div>
+
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <?php
+                        Yii::$app->urlManager->setBaseUrl('profile');
+                        ?>
+                        <a href="<?= Yii::$app->urlManager->createAbsoluteUrl(['/../../profile/index.php/order','id'=>$model->hash_id]) ?>" class="btn btn-success">سفارش</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
 
 
-                <div class="col-md-5">
+                        <!----------- Gallery ---------->
+                        <?php
 
+                        if (!empty($model->productGalleries)) {
+                            $count = 0;
+                            foreach ($model->productGalleries as $key => $value) {
 
-                    <!----------- Gallery ---------->
-                    <?php
-
-                    if (!empty($model->productGalleries)) {
-                        $count = 0;
-                        foreach ($model->productGalleries as $key => $value) {
-
-                            if ($count == 0) {
-                                echo ' <div class="row imagetiles">';
-                            }
-
-                            ?>
-
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 img-thumbnail">
-                                <div class=" img-thumbnail-size">
-                                    <img src="<?= Yii::$app->systemCore->downloadURL . '/product/' . $model->id . '/' . $value->img_name ?>"
-                                         class="img-responsive img-thumbnail" alt="Image">
-                                </div>
-
-
-                            </div>
-                            <?php
-                            if ($count == 2) {
-                                echo ' </div>';
-                                $count = 0;
-                            } else {
-                                if (empty($model->productGalleries[$key + 1])) {
-                                    echo '</div>';
+                                if ($count == 0) {
+                                    echo ' <div class="row imagetiles">';
                                 }
-                                $count++;
+
+                                ?>
+
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 img-thumbnail">
+                                    <div class=" img-thumbnail-size">
+                                        <img src="<?= Yii::$app->systemCore->downloadURL . '/product/' . $model->id . '/' . $value->img_name ?>"
+                                             class="img-responsive img-thumbnail" alt="Image">
+                                    </div>
+
+
+                                </div>
+                                <?php
+                                if ($count == 2) {
+                                    echo ' </div>';
+                                    $count = 0;
+                                } else {
+                                    if (empty($model->productGalleries[$key + 1])) {
+                                        echo '</div>';
+                                    }
+                                    $count++;
+                                }
                             }
                         }
-                    }
-                    ?>
-                    <!----------- End Gallery ---------->
+                        ?>
+                        <!----------- End Gallery ---------->
 
 
-                </div>
-                <div class="col-md-7">
-                    <?= Html::decode($model->description) ?>
+                    </div>
+                    <div class="col-md-7">
+                        <?= Html::decode($model->description) ?>
+                    </div>
                 </div>
             </div>
         </div>

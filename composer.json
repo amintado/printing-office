@@ -38,7 +38,8 @@
         "amintado/yii2-module-inquery": "@dev",
         "amintado/yii2-module-pay": "dev-master",
         "faravaghi/yii2-jalali-datepicker": "*",
-        "drsdre/yii2-wizardwidget": "*"
+        "drsdre/yii2-wizardwidget": "*",
+        "insolita/yii2-skeletest": "~1.1"
     },
     "minimum-stability" : "dev",
     "prefer-stable" : true,
@@ -59,7 +60,9 @@
         "amintado/yii2-aprico-asset": "dev-master",
         "amintado/yii2-module-rbac-plus": "dev-master",
         "codeception/base": "^2.2.3",
-        "codeception/verify": "~0.3.1"
+        "codeception/verify": "~0.3.1",
+        "codeception/specify": "*",
+        "fzaninotto/faker": "*"
     },
     "config": {
         "process-timeout": 1800,
@@ -78,7 +81,8 @@
             "bower install image-grid-effects",
             "bower install fine-uploader",
             "bower install bootstrap-fileinput",
-            "bower install --force-latest"
+            "bower install --force-latest",
+            "bower install photoswipe"
         ]
     }
 }

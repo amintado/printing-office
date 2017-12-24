@@ -1,4 +1,14 @@
 <?php
+/*******************************************************************************
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ ******************************************************************************/
 
 use common\models\base\UserInfo;
 use yii\helpers\Html;
@@ -55,12 +65,12 @@ use yii\helpers\Html;
         ],
 
             //---------------- User Charge -------------------
-        [
-            'label' => '<i class="glyphicon glyphicon-book"></i> ' . Html::encode(Yii::t('backend', 'UserInfo - Price')),
-            'content' => $this->render('_formPrice', [
-                'model' => $InfoModel,'form'=>$form
-            ]),
-        ],
+//        [
+//            'label' => '<i class="glyphicon glyphicon-book"></i> ' . Html::encode(Yii::t('backend', 'UserInfo - Price')),
+//            'content' => $this->render('_formPrice', [
+//                'model' => $InfoModel,'form'=>$form
+//            ]),
+//        ],
     ];
 
     //---------------- Echo User Edit Tabs -------------------

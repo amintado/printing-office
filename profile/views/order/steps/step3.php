@@ -9,6 +9,10 @@
  * Official GitHub Page: https://github.com/amintado/printing-office
  * All rights reserved.
  ******************************************************************************/
+/**
+ * @var $user User
+ * @var $product Product
+ */
 ?>
 
 <div class="container-fluid">

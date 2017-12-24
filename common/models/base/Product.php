@@ -43,7 +43,7 @@ use yii\behaviors\BlameableBehavior;
  * @property double $weight
  * @property string $theme_file
  * @property int $dimensions_mode
- * @property string $dimensions_settings
+ * @property string $settings
  * @property string $files_options
  * @property string $tiraj_options
  * @property string $statusText
@@ -102,10 +102,10 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['description', 'specification', 'technical_specification','theme_file','dimensions_settings','files_options','tiraj_options'], 'string'],
+            [['description', 'specification', 'technical_specification','theme_file','settings','files_options','tiraj_options'], 'string'],
             [['lock', 'created_by', 'updated_by', 'deleted_by', 'restored_by'], 'integer'],
             [['status','category','zink','dimensions_mode'],'integer'],
-            [['weight'],'double'],
+            [['Weight'],'double'],
             [['created_at', 'updated_at'], 'safe'],
             [['title'], 'string', 'max' => 255],
             [['UUID'], 'string', 'max' => 32],

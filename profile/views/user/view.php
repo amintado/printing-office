@@ -53,7 +53,7 @@ $this->title= Yii::t('common', 'User Profile View')
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <a href="<?= Yii::$app->urlManager->createUrl(['/user/update']) ?>" type="button" class="btn btn-primary center-block" style="width: 100px"><?= Yii::t('common', 'Edit') ?></a>
+                    <a href="<?= Yii::$app->urlManager->createUrl(['/user/update']) ?>" type="button" class="btn btn-primary center-block circle" style="width: 100px"><?= Yii::t('common', 'Edit') ?></a>
                 </div>
             </div>
         </div>

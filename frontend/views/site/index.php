@@ -17,5 +17,21 @@ use amintado\slider\widgets\SliderWidget;
 ?>
 
 <?php wp_head(); ?>
+<style>
+    .wrap {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        max-width: 100vw !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .container {
+        padding-right: 0px;
+        padding-left: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+</style>
 <?php layerslider(1) ?>
+
 

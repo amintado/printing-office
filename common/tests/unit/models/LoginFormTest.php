@@ -1,4 +1,14 @@
 <?php
+/*******************************************************************************
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ ******************************************************************************/
 
 namespace common\tests\unit\models;
 
@@ -41,8 +51,8 @@ class LoginFormTest extends \Codeception\Test\Unit
     public function testLoginWrongPassword()
     {
         $model = new LoginForm([
-            'username' => 'bayer.hudson',
-            'password' => 'wrong_password',
+            'username' => 'admin',
+            'password' => '22250603652000',
         ]);
 
         expect('model should not login user', $model->login())->false();

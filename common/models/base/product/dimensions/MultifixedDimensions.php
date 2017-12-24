@@ -31,11 +31,13 @@ use yii\base\Model;
  */
 class MultifixedDimensions extends Model
 {
+    public $fixed_height, $fixed_width,$price;
     public function rules()
 {
     return
     [
-        [['fixed_height','fixed_width','price'],'double']
+        [['fixed_height','fixed_width','price'],'double'],
+        [['fixed_height','fixed_width','price'],'required'],
     ];
 }
 

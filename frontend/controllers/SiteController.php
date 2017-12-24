@@ -142,10 +142,10 @@ class SiteController extends Controller
             }
 
             return $this->refresh();
-        } else {
-            return $this->render('contact', [
-                'model' => $model,
-            ]);
+//        } else {
+//            return $this->render('contact', [
+//                'model' => $model,
+//            ]);
         }
     }
 
@@ -261,8 +261,8 @@ class SiteController extends Controller
         $model = new SignupForm();
 
 
+        $model->scenario = SignupForm::SCENARIO_GET_CODE;
         if ($model->load($post)) {
-            $model->scenario = SignupForm::SCENARIO_GET_CODE;
 
             switch ($model->GetCode()) {
                 case null:
@@ -289,6 +289,7 @@ class SiteController extends Controller
         }
         $post = Yii::$app->request->post();
         $model = new SignupForm();
+        $model->scenario = SignupForm::SCENARIO_GET_USER_DETAIL;
         if ($model->load($post)) {
 
             if ($model->GetDetail()) {

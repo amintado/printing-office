@@ -29,7 +29,7 @@ use yii\helpers\Html;
  */
 ?>
 
-
+<div class="container" style="margin-top: 100px;">
     <div class="row">
         <h4>محصولات</h4 class="center-block">
 
@@ -73,4 +73,6 @@ use yii\helpers\Html;
         ?>
 
     </div>
+</div>
+
 

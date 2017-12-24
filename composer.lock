@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c2b5035fffefe56a25fe93cbd92e42c",
+    "content-hash": "d6762783b5ce1f096ab580727b3c6a52",
     "packages": [
         {
             "name": "2amigos/yii2-ckeditor-widget",
@@ -1224,6 +1224,51 @@
             "time": "2017-10-12T06:10:53+00:00"
         },
         {
+            "name": "drsdre/yii2-wizardwidget",
+            "version": "1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/drsdre/yii2-wizardwidget.git",
+                "reference": "51ef01d315875830af2565121fe1f3b1bf32850c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/drsdre/yii2-wizardwidget/zipball/51ef01d315875830af2565121fe1f3b1bf32850c",
+                "reference": "51ef01d315875830af2565121fe1f3b1bf32850c",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": ">=2.0.6",
+                "yiisoft/yii2-bootstrap": "~2.0.0"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "drsdre\\wizardwidget\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "A.F.Schuurman",
+                    "email": "andre.schuurman+yii2-wizardwidget@gmail.com"
+                }
+            ],
+            "description": "Multi step wizard widget using tabs to guide a user through steps to complete a task. Based on the Form wizard (using tabs) from lukepzak (see http://bootsnipp.com/snippets/featured/form-wizard-using-tabs).",
+            "keywords": [
+                "extension",
+                "tabs",
+                "ui",
+                "widget",
+                "wizard",
+                "yii2"
+            ],
+            "time": "2016-12-28T13:00:02+00:00"
+        },
+        {
             "name": "emojione/emojione",
             "version": "v2.2.7",
             "source": {
@@ -1447,6 +1492,106 @@
                 "icon"
             ],
             "time": "2016-10-24T15:52:54+00:00"
+        },
+        {
+            "name": "insolita/yii2-skeletest",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Insolita/yii2-skeletest.git",
+                "reference": "e914045c47c034d856afee6c4e19892bb1bdf9ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Insolita/yii2-skeletest/zipball/e914045c47c034d856afee6c4e19892bb1bdf9ae",
+                "reference": "e914045c47c034d856afee6c4e19892bb1bdf9ae",
+                "shasum": ""
+            },
+            "require": {
+                "insolita/yii2-validatorpack": "~0.0.1",
+                "php": ">=7.0",
+                "yiisoft/yii2": "~2.0.9"
+            },
+            "require-dev": {
+                "codeception/codeception": "^2.2.3",
+                "codeception/specify": "~0.4.3",
+                "codeception/verify": "~0.3.1",
+                "nesbot/carbon": "~1.9",
+                "vlucas/phpdotenv": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "insolita\\skeletest\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "insolita",
+                    "email": "webmaster100500@ya.ru"
+                }
+            ],
+            "description": "Generate test skeletons for file or whole directory with target file methods (codeception/phpunit - based on template) ",
+            "keywords": [
+                "codeception",
+                "extension",
+                "phpunit",
+                "tests",
+                "yii2"
+            ],
+            "time": "2017-05-28T18:14:51+00:00"
+        },
+        {
+            "name": "insolita/yii2-validatorpack",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Insolita/yii2-validatorpack.git",
+                "reference": "2006f6f8bca850799c6d8a8f6b997f82cf625112"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Insolita/yii2-validatorpack/zipball/2006f6f8bca850799c6d8a8f6b997f82cf625112",
+                "reference": "2006f6f8bca850799c6d8a8f6b997f82cf625112",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6",
+                "yiisoft/yii2": "~2.0.11"
+            },
+            "require-dev": {
+                "codeception/codeception": "^2.2.3",
+                "codeception/specify": "~0.4.3",
+                "codeception/verify": "~0.3.1",
+                "vlucas/phpdotenv": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "insolita\\validators\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "insolita",
+                    "email": "webmaster100500@ya.ru"
+                }
+            ],
+            "description": "...",
+            "keywords": [
+                "extension",
+                "validator",
+                "yii2"
+            ],
+            "time": "2017-05-25T15:12:21+00:00"
         },
         {
             "name": "kartik-v/bootstrap-fileinput",
@@ -5312,6 +5457,44 @@
                 "unit testing"
             ],
             "time": "2017-09-29T00:03:44+00:00"
+        },
+        {
+            "name": "codeception/specify",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Codeception/Specify.git",
+                "reference": "1b1fe23f887aac647d0f7f5be3867b240690449d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Codeception/Specify/zipball/1b1fe23f887aac647d0f7f5be3867b240690449d",
+                "reference": "1b1fe23f887aac647d0f7f5be3867b240690449d",
+                "shasum": ""
+            },
+            "require": {
+                "myclabs/deep-copy": "~1.1",
+                "php": ">=7.0.0",
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Codeception\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Bodnarchuk",
+                    "email": "davert@codeception.com"
+                }
+            ],
+            "description": "BDD code blocks for PHPUnit and Codeception",
+            "time": "2017-11-20T23:40:31+00:00"
         },
         {
             "name": "codeception/verify",

@@ -19,7 +19,6 @@ use yii\web\Controller;
 
 class ProductController extends Controller
 {
-
     public function actionIndex(){
         $model=Product::find()->active()->all();
         return  $this->render('index',

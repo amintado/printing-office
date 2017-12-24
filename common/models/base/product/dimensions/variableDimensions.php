@@ -29,11 +29,14 @@ use yii\base\Model;
  */
 class variableDimensions extends Model
 {
+    public $perth,$prevent_change_in_client,$base_width,$base_height,$min_height,$min_width,$max_height,$max_width,$price;
+
     public function rules()
     {
         return
             [
                 [['perth','prevent_change_in_client'],'boolean'],
+                [['base_height','base_width','max_height','max_width','min_height','min_width','price'],'required'],
                 [['base_width','base_height','min_height','min_width','max_height','max_width'],'double'],
                 [['price'],'double']
             ];

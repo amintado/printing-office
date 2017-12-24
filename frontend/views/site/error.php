@@ -1,4 +1,14 @@
 <?php
+/*******************************************************************************
+ * Copyright (c) 2017.
+ * this file created in printing-office project
+ * framework: Yii2
+ * license: GPL V3 2017 - 2025
+ * Author:amintado@gmail.com
+ * Company:shahrmap.ir
+ * Official GitHub Page: https://github.com/amintado/printing-office
+ * All rights reserved.
+ ******************************************************************************/
 
 /* @var $this yii\web\View */
 /* @var $name string */
@@ -9,7 +19,7 @@ use yii\helpers\Html;
 
 $this->title = $name;
 ?>
-<div class="site-error">
+<div class="site-error " style="margin-top: 30px">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -18,10 +28,10 @@ $this->title = $name;
     </div>
 
     <p>
-        The above error occurred while the Web server was processing your request.
+
     </p>
     <p>
-        Please contact us if you think this is a server error. Thank you.
+
     </p>
 
 </div>

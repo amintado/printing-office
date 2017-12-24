@@ -293,11 +293,39 @@ use common\models\User;
                         'icon' => 'index',
                         'url' => ['/inventory/cardex']
                     ],
-                ]
+                    [
+                        'label' => 'مدیریت مراکز',
+                        'icon' => 'index',
+                        'url' => ['/inventory/peoples']
+                    ],
+                    [
+                        'label' => 'مدیریت دسته مراکز',
+                        'icon' => 'index',
+                        'url' => ['/inventory/peoples-category']
+                    ],
+                    [
+                        'label' => 'فاکتور ها',
+                        'icon' => 'index',
+                        'items' =>
+                            [
+                                [
+                                    'label' => 'فاکتورهای خرید',
+                                    'icon' => 'index',
+                                    'url' => ['/inventory/purchase-factors']
+                                ],
+                                [
+                                    'label' => 'فاکتورهای فروش',
+                                    'icon' => 'index',
+                                    'url' => ['/inventory/sales-factors']
+                                ],
+
+                            ]
+                    ]
+                ],
 
         ];
 
-        //        $items[11] = ;
+        $items[11] = ['label' => 'صندوق', 'options' => ['class' => 'header']];
 
         if
         (
